@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "$schema": "http://json-schema.org/schema",
+    "properties": {
+        "orderItemID": {
+            "type": "string"
+        },
+        "cost": {
+            "type": "number",
+            "description": "The cost of the orderItem."
+        },
+        "itemID": {
+            "type": "string",
+            "description": "The ID of the associated item. Note, either item or itemID is required."
+        },
+        "merchandiseID": {
+            "type": "string",
+            "description": "The ID of the associated merchandise."
+        },
+        "giftID": {
+            "type": "string",
+            "description": "The ID of the associated gift."
+        },
+        "itemCount": {
+            "type": "integer",
+            "description": "The number of items ordered."
+        },
+        "pricingCondition": {
+            "type": "string",
+            "description": "The condition by which this object was priced."
+        },
+        "item": {
+            "$ref": "item.json",
+            "description": "The associated item. Note, either item or itemID is required."
+        },
+        "gift": {
+            "$ref": "gift.json",
+            "description": "The associated gift. Note, either gift or giftID is required."
+        },
+        "merchandise": {
+            "$ref": "gift.json",
+            "description": "The associated merchandiser. Note, either merchandise or merchandiseID is required."
+        }
+    },
+    "required": [
+        "orderItemID",
+        "cost",
+        "itemCount"
+    ]
+}

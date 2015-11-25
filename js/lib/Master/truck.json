@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "$schema": "http://json-schema.org/schema",
+    "properties": {
+        "cost": {
+            "type": "number",
+            "description": "The current cost of the items in the truck."
+        },
+        "pointsEarned": {
+            "type": "number",
+            "description": "The number of points this order will earn."
+        },
+        "orderItems": {
+            "type": "array",
+            "items": {
+                "$ref": "orderItem.json"
+            }
+        },
+        "giftItems": {
+            "type": "array",
+            "items": {
+                "$ref": "orderItem.json"
+            }
+        }
+    }
+}

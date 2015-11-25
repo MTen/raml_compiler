@@ -1,0 +1,66 @@
+{
+    "type": "object",
+    "$schema": "http://json-schema.org/schema",
+    "properties": {
+        "pricingID": {
+            "type": "string"
+        },
+        "cost": {
+            "type": "number",
+            "description": "The final cost of the order after taxes, charges, and discounts have been applied."
+        },
+        "taxAmount": {
+            "type": "number",
+            "description": "The total tax charged to the order."
+        },
+        "chargeAmount": {
+            "type": "number",
+            "description": "The total cost of charges to the order, excluding tax."
+        },
+        "discountAmount": {
+            "type": "number",
+            "description": "The total value of the discounts applied to the order."
+        },
+        "grossSalesAmount": {
+            "type": "number", 
+            "description": "The total cost of the order, excluding deposits, taxes, and other charges."
+        },
+        "depositAmount": {
+            "type": "number", 
+            "description": "The cost of deposits paid when purchasing cans, bottles, and kegs."
+        },
+        "deliveryCost": {
+            "type": "number", 
+            "description": "The fee associated with delivery."
+        },
+        "salesQuantity": {
+            "type": "integer", 
+            "description": "The number of items purchased."
+        },
+        "discounts": {
+            "type": "array",
+            "items": {
+                "$ref": "discount.json"
+            }
+        },
+        "pointsEarned": {
+           "type": "number",
+           "description": "The total number of points earned when that order was placed."
+        },
+        "orderItems": {
+            "type": "array",
+            "items": {
+                "$ref": "orderItem.json"
+            }
+        },
+        "giftItems": {
+            "type": "array",
+            "items": {
+                "$ref": "orderItem.json"
+            }
+        }
+    },
+    "required": [
+        "id"
+    ]
+}

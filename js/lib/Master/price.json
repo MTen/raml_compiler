@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "$schema": "http://json-schema.org/schema",
+    "properties": {
+        "priceID": {
+            "type": "string"
+        },
+        "itemIDs": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "suggestedRetailPrice": {
+            "type": "string",
+            "description": "The price advised for the item."
+        },
+        "unitPrice": {
+            "type": "number",
+            "description": "The top-line price for the item."
+        },
+        "startDate": {
+            "type": "string",
+            "description": "The effective starting date of the price.Preferred format: yyyy-MM-dd HH:mm:ss."
+        },
+        "endDate": {
+            "type": "string",
+            "description": "The date this price will expire. Preferred format: yyyy-MM-dd HH:mm:ss."
+        },
+        "discounts": {
+            "type": "array",
+            "items": {
+                "$ref": "discount.json"
+            }
+        },
+        "items": {
+            "type": "array",
+            "items": {
+                "$ref": "item.json"
+            }
+        }
+    },
+    "required": [
+        "priceID",
+        "unitPrice"
+    ]
+}

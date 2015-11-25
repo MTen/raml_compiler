@@ -1,0 +1,63 @@
+{
+    "type": "object",
+    "$schema": "http://json-schema.org/schema",
+    "properties": {
+        "discountID": {
+            "type": "string"
+        },
+        "itemIDs": {
+            "type": "array",
+            "description": "An array of itemIDs that describe which items this discount is associated with."
+        },
+        "type": {
+            "type": "string",
+            "description": "Specify AO, PO, DF, CF, SP"
+        },
+        "earnLevelType": {
+            "type": "string",
+            "description": "Specify D, Q, or NA"
+        },
+        "earnLevelAmount": {
+            "type": "number",
+            "description": "The amount that must be spent to earn a discount"
+        },
+        "earnLevelQuantity": {
+            "type": "integer",
+            "description": "The number of items that must be purchased to earn a discount"
+        },
+        "amountOff": {
+            "type": "number",
+            "description": "Price off a single item"
+        },
+        "percentOff": {
+            "type": "number",
+            "description": "Percent off a single item"
+        },
+        "substitutePrice": {
+            "type": "number"
+        },
+        "startDate": {
+            "type": "string",
+            "description": "Preferred format: yyyy-MM-dd HH:mm:ss."
+        },
+        "endDate": {
+            "type": "string",
+            "description": "Preferred format: yyyy-MM-dd HH:mm:ss."
+        },
+        "discountAmount": {
+            "type": "number",
+            "description": "The total value of the discount."
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of the user which may be displayed to the user."
+        }
+    },
+    "required": [
+        "discountID",
+        "itemID",
+        "type",
+        "earnLevelType",
+        "startDate"
+    ]
+}
