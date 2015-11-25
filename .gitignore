@@ -1,5 +1,5 @@
 .DS_Store
 .idea/
 node_modules
-/output/*
-ruby/raml_ruby/
+/js/output
+/ruby/raml_ruby/*
