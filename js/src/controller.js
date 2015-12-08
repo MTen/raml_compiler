@@ -1,16 +1,15 @@
 module.exports = function () {
 
-  var path, fs, files, appDir, region, schema, targetFile, filesArray ;
+  var fs, filesArray, rootDir;
 
-  path = require('path');
   fs = require('fs');
-  filesArray = [];
-  this.appDir = appDir = path.dirname(require.main.filename);
-  this.output = appDir + "/output/";
-  this.region = region = "/Master/";
-  this.schema = schema = "brand.json";
-  this.folderRegion = appDir + region;
-  this.targetFile = region + schema;
+  rootDir = "../";
+  var stuff = this;
+  this.filesArray;
+  this.output = "output/";
+  this.region;
+  this.schema;
+
 
   this.files = function(folderR) {
     console.log("unique success")
@@ -19,5 +18,13 @@ module.exports = function () {
       //TODO this is returning undefined
       this.filesArray = data;
     })
+  };
+
+  // temporary method to get specific methods
+  this.setFile = function(r, s){
+    stuff.region = r; // directory like CO_2.0
+    stuff.schema = s; // specific schema like brand.json
+    console.log(stuff.region + stuff.schema);
+    this.targetFile = r + s;
   }
 };

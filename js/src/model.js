@@ -1,7 +1,7 @@
 module.exports = function(){
   var fs = require('fs');
   var refParser = require('json-schema-ref-parser');
-  var files = [];
+ // this.files = nil;
 
   this.parse = function (controller) {
     var newName = controller.schema.replace(".json", "Compiled.json");

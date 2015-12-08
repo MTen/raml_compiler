@@ -52,10 +52,6 @@
             "type": "string", 
             "description": "The date the account's credit will expire. Preferred format: yyyy-MM-dd HH:mm:ss."
         },
-        "routeID": {
-            "type": "string", 
-            "description": "The account's route identifier which may be used to determine delivery options."
-        },
         "paymentMethods": {
             "type": "array",
             "description": "An enumerated list of payment methods available to the account.",
@@ -98,10 +94,6 @@
             "items": {
                 "$ref": "user.json"
             }
-        },
-        "features":{
-            "$ref": "features.json",
-            "description": "A set of boolean flags indicating features that are enabled or disabled for this account."
         }
     },
     "required": [

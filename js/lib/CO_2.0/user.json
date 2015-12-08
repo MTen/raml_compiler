@@ -32,12 +32,6 @@
             "items": {
                 "$ref": "account.json"
             }
-        },
-        "notifications": {
-            "type": "array",
-            "items": {
-                "$ref": "notification.json"
-            }
         }
     },
     "required": [

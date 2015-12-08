@@ -29,7 +29,6 @@
     "totalCredit": 3000,
     "creditBalance": 205.55,
     "creditExpiration": "2020-05-11 00:00:00",
-    "routeID": "I15",
     "paymentMethods": ["CASH", "CREDIT", "UNION_PAY"],
     "orderDeadlines": [
         {
@@ -84,9 +83,5 @@
             "name": "RJStidd",
             "phone": "212-646-8000"
         }
-    ],
-    "features" : {
-        "featuresID" : 1,
-        "netscheduler" : true
-    }
+    ]
 }

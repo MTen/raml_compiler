@@ -3,8 +3,6 @@
     "physicalInvoiceID": "2",
     "date": "2014-10-11 00:00:00",
     "cost": 290.45,
-    "taxAmount" : 21.3,
-    "discountAmount" : 32.5,
     "orders": [
         {
             "orderID": "1",
