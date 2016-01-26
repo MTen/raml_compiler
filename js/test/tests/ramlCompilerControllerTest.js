@@ -3,7 +3,7 @@ var fs = require('fs');
 
 var C = require("../../src/ramlCompilerController");
 var c = new C();
-
+console.log(C);
 describe("Controller", function(){
   it("controller: defined", function(){
     assert.isDefined(c, "Controller.js did not import")
