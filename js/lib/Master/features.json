@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "description": "A set of boolean flags indicating enabled features",
+  "properties": {
+    "featuresID": {
+      "type": "string",
+      "description": "A unique identifier for the features object"
+    },
+    "netscheduler": {
+      "type": "boolean",
+      "description": "true if account has NetScheduler feature enabled, false if account has NetScheduler feature disabled."
+    },
+    "suggestedOrders": {
+      "type": "boolean",
+      "description": "true if account has suggested orders, false if account has no suggested orders."
+    }
+  },
+  "required": [
+    "featuresID"
+  ]
+}

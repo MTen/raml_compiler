@@ -1,0 +1,16 @@
+[
+  {
+    "discountID": "1",
+    "itemID": "55345",
+    "type": "CF",
+    "earnLevelType": "Q",
+    "earnLevelAmount": 0,
+    "earnLevelQuantity": 4,
+    "amountOff": 1,
+    "percentOff": 0,
+    "subsitutePrice": 0,
+    "startDate": "2014-10-11 00:00:00",
+    "endDate": "2014-12-11 00:00:00",
+    "description": "Buy 4, get 1 free."
+  }
+]

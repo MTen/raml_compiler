@@ -1,0 +1,4 @@
+test/
+--slim
+--require test/helper
+--reporter list

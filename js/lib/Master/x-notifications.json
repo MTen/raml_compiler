@@ -1,0 +1,20 @@
+[
+  {
+    "notificationID": "1",
+    "description": "Alert me when my order is on its way.",
+    "isEnabled": true,
+    "day": -1
+  },
+  {
+    "notificationID": "2",
+    "description": "Alert me when my order is 30 minutes away.",
+    "isEnabled": true,
+    "day": -1
+  },
+  {
+    "notificationID": "3",
+    "description": "Alert me when my order has been delivered.",
+    "isEnabled": true,
+    "day": -1
+  }
+]

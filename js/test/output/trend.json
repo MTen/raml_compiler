@@ -1,0 +1,208 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "description": "A localized trend.",
+  "properties": {
+    "trendID": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "description": "A description of the trend presented to the user."
+    },
+    "sortOrder": {
+      "type": "integer",
+      "description": "The order in which this trend should appear relative to others. Trends are sorted from lowest sortOrder to highest."
+    },
+    "brand": {
+      "description": "The brand associated with this trend.",
+      "type": "object",
+      "$schema": "http://json-schema.org/schema",
+      "properties": {
+        "brandID": {
+          "type": "string"
+        },
+        "alcoholContent": {
+          "type": "string",
+          "description": "The percentage of alchol in the brand's products."
+        },
+        "countryOfOrigin": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string",
+          "description": "An optional grouping for similar brands, for instance, Bud Light Lime and Bud Light may share a brand family."
+        },
+        "flavorDescription": {
+          "type": "string"
+        },
+        "foodPairing": {
+          "type": "string",
+          "description": "Suggested foods to consume along with the brand."
+        },
+        "manufacturer": {
+          "type": "string"
+        },
+        "marketingCopy": {
+          "type": "string",
+          "description": "Marketing copy for the brand displayed in Brand Details."
+        },
+        "name": {
+          "type": "string"
+        },
+        "romanceCopy": {
+          "type": "string",
+          "description": "A succinct description of the brand displayed in Product Ordering."
+        },
+        "servingTemperature": {
+          "type": "string",
+          "description": "The ideal condition to serve the brand's products."
+        },
+        "style": {
+          "type": "string",
+          "description": "The beer style of the brand, for instance, Indian Pale Ale."
+        },
+        "trueBrewer": {
+          "type": "string",
+          "description": "The actual brewer of the beer."
+        },
+        "imageURL": {
+          "type": "string",
+          "description": "A url or path to a local file."
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$schema": "http://json-schema.org/schema",
+            "properties": {
+              "itemID": {
+                "type": "string"
+              },
+              "brandID": {
+                "type": "string",
+                "description": "The item's parent brand."
+              },
+              "brandName": {
+                "type": "string",
+                "description": "The name of the item's parent brand."
+              },
+              "name": {
+                "type": "string",
+                "description": "A name for the item displayable to the user."
+              },
+              "price": {
+                "type": "object",
+                "$schema": "http://json-schema.org/schema",
+                "properties": {
+                  "priceID": {
+                    "type": "string"
+                  },
+                  "unitPrice": {
+                    "type": "number",
+                    "description": "The top-line price for the item."
+                  }
+                },
+                "required": [
+                  "priceID",
+                  "unitPrice"
+                ]
+              },
+              "package": {
+                "type": "object",
+                "$schema": "http://json-schema.org/schema",
+                "properties": {
+                  "packageID": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "itemCount": {
+                    "type": "integer",
+                    "description": "The number of bottles/cans/kegs in a single container. If a package contains 2 6-packs, 6."
+                  },
+                  "itemSize": {
+                    "type": "number",
+                    "description": "The volume of a single keg, bottle, or can in a package."
+                  },
+                  "returnable": {
+                    "type": "boolean",
+                    "description": "Marks whether the package may be returned or not."
+                  },
+                  "unitCount": {
+                    "type": "number",
+                    "description": "The number of containers in a package. If a package contains 2 6-packs, 2."
+                  },
+                  "unitOfMeasurement": {
+                    "type": "string",
+                    "description": "OZ, l, etc."
+                  },
+                  "containerName": {
+                    "type": "string",
+                    "description": "Keg, Bottle, Can, etc."
+                  }
+                },
+                "required": [
+                  "packageID",
+                  "itemCount",
+                  "itemSize",
+                  "unitCount",
+                  "unitOfMeasurement",
+                  "containerName"
+                ]
+              }
+            },
+            "required": [
+              "itemID",
+              "brandID",
+              "name",
+              "brandName"
+            ]
+          }
+        },
+        "glassware": {
+          "type": "object",
+          "$schema": "http://json-schema.org/schema",
+          "properties": {
+            "glasswareID": {
+              "type": "string"
+            },
+            "imageURL": {
+              "type": "number",
+              "description": "A path to the glassware's image."
+            },
+            "description": {
+              "type": "integer",
+              "description": "A show description of the glassware."
+            },
+            "name": {
+              "type": "integer",
+              "description": "A name for the glassware, e.g. Pint Glass."
+            },
+            "brandIDs": {
+              "type": "array",
+              "description": "An array identifying brands associated with the glassware",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "glasswareID",
+            "brandIDs"
+          ]
+        }
+      },
+      "required": [
+        "brandID",
+        "name"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "description",
+    "brand"
+  ]
+}

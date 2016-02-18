@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "description": "A beer distributor, typically responsible for beer delivery and accounts receivable.",
+  "properties": {
+    "wholesalerID": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "The wholesaler's name."
+    },
+    "addressLineOne": {
+      "type": "string",
+      "description": "The first line of the wholesaler's address."
+    },
+    "addressLineTwo": {
+      "type": "string",
+      "description": "The second line of the wholesaler's address"
+    },
+    "city": {
+      "type": "string",
+      "description": "The wholesaler's city."
+    },
+    "state": {
+      "type": "string",
+      "description": "The wholesaler's state."
+    },
+    "zipCode": {
+      "type": "string",
+      "description": "The wholesaler's zip code."
+    },
+    "latitude": {
+      "type": "number",
+      "description": "The wholesaler's latitude."
+    },
+    "longitude": {
+      "type": "number",
+      "description": "The wholesaler's longitude."
+    }
+  },
+  "required": [
+    "wholesalerID",
+    "name",
+    "zipCode"
+  ]
+}

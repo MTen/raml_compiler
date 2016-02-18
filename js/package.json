@@ -2,8 +2,10 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "scripts":{
-    "parse": "node app"
+  "scripts": {
+    "parse": "node app",
+    "test": "mocha",
+    "testing": "mocha --watch"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -11,9 +13,8 @@
     "grunt-contrib-nodeunit": "~0.4.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-exec": "^0.4.6",
-    "grunt-mocha": "^0.4.15"
-  },
-  "ramlCompiler": "./src/ramlCompiler.js",
-  "ramlCompilerController": "./src/ramlCompilerController.js",
-  "ramlCompilerModel": "./src/ramlCompilerModel.js"
+    "grunt-mocha": "^0.4.15",
+    "json-schema-ref-parser": "^2.2.0",
+    "mocha": "^2.4.5"
+  }
 }

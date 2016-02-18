@@ -1,0 +1,16 @@
+{
+    "emptiesBalanceID": "6shj281ak",
+    "balance" : 89,
+    "empties": [
+        {
+            "emptiesID": "2NM",
+            "name": "000000000002000162 2NVASE AGRUP NO PREMIUM",
+            "itemCount": 5
+        },
+        {
+            "emptiesID": "2IUM",
+            "name": "000000000002000762 ENVASE AGRUP REFRESCO",
+            "itemCount": 8
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "categoryID": "1",
+    "type": "brandFamily",
+    "name": "Bud Light",
+    "sortOrder": 3,
+    "iconImageURL": "budLightBrowse.png",
+    "backgroundImageURL": "budLightBackgroundBrowse.png",
+    "brands": [],
+    "items": []
+  }
+]

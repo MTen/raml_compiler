@@ -1,0 +1,235 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "properties": {
+    "cocktailID": {
+      "type": "string"
+    },
+    "menuItemDescription": {
+      "type": "string",
+      "description": "A description of the cocktail that would be suitable for a menu."
+    },
+    "backgroundImageURL": {
+      "type": "string",
+      "description": "A background image on which the primary cocktail image is displayed."
+    },
+    "imageURL": {
+      "type": "string",
+      "description": "The primary image of the cocktail."
+    },
+    "directions": {
+      "type": "string",
+      "description": "A description of how to prepare the cocktail"
+    },
+    "equipment": {
+      "type": "string",
+      "description": "Equipment needed to prepare the cocktail"
+    },
+    "ingredients": {
+      "type": "string",
+      "description": "The cocktail's ingredients"
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "description": "A single featured cocktail will display prominently in the application."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the cocktail."
+    },
+    "sortOrder": {
+      "type": "integer",
+      "description": "Determines the order in which the cocktail will be displayed. Cocktails are sorted from lowest sortOrder to highest."
+    },
+    "brands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$schema": "http://json-schema.org/schema",
+        "properties": {
+          "brandID": {
+            "type": "string"
+          },
+          "alcoholContent": {
+            "type": "string",
+            "description": "The percentage of alchol in the brand's products."
+          },
+          "countryOfOrigin": {
+            "type": "string"
+          },
+          "family": {
+            "type": "string",
+            "description": "An optional grouping for similar brands, for instance, Bud Light Lime and Bud Light may share a brand family."
+          },
+          "flavorDescription": {
+            "type": "string"
+          },
+          "foodPairing": {
+            "type": "string",
+            "description": "Suggested foods to consume along with the brand."
+          },
+          "manufacturer": {
+            "type": "string"
+          },
+          "marketingCopy": {
+            "type": "string",
+            "description": "Marketing copy for the brand displayed in Brand Details."
+          },
+          "name": {
+            "type": "string"
+          },
+          "romanceCopy": {
+            "type": "string",
+            "description": "A succinct description of the brand displayed in Product Ordering."
+          },
+          "servingTemperature": {
+            "type": "string",
+            "description": "The ideal condition to serve the brand's products."
+          },
+          "style": {
+            "type": "string",
+            "description": "The beer style of the brand, for instance, Indian Pale Ale."
+          },
+          "trueBrewer": {
+            "type": "string",
+            "description": "The actual brewer of the beer."
+          },
+          "imageURL": {
+            "type": "string",
+            "description": "A url or path to a local file."
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "$schema": "http://json-schema.org/schema",
+              "properties": {
+                "itemID": {
+                  "type": "string"
+                },
+                "brandID": {
+                  "type": "string",
+                  "description": "The item's parent brand."
+                },
+                "brandName": {
+                  "type": "string",
+                  "description": "The name of the item's parent brand."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "A name for the item displayable to the user."
+                },
+                "price": {
+                  "type": "object",
+                  "$schema": "http://json-schema.org/schema",
+                  "properties": {
+                    "priceID": {
+                      "type": "string"
+                    },
+                    "unitPrice": {
+                      "type": "number",
+                      "description": "The top-line price for the item."
+                    }
+                  },
+                  "required": [
+                    "priceID",
+                    "unitPrice"
+                  ]
+                },
+                "package": {
+                  "type": "object",
+                  "$schema": "http://json-schema.org/schema",
+                  "properties": {
+                    "packageID": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "itemCount": {
+                      "type": "integer",
+                      "description": "The number of bottles/cans/kegs in a single container. If a package contains 2 6-packs, 6."
+                    },
+                    "itemSize": {
+                      "type": "number",
+                      "description": "The volume of a single keg, bottle, or can in a package."
+                    },
+                    "returnable": {
+                      "type": "boolean",
+                      "description": "Marks whether the package may be returned or not."
+                    },
+                    "unitCount": {
+                      "type": "number",
+                      "description": "The number of containers in a package. If a package contains 2 6-packs, 2."
+                    },
+                    "unitOfMeasurement": {
+                      "type": "string",
+                      "description": "OZ, l, etc."
+                    },
+                    "containerName": {
+                      "type": "string",
+                      "description": "Keg, Bottle, Can, etc."
+                    }
+                  },
+                  "required": [
+                    "packageID",
+                    "itemCount",
+                    "itemSize",
+                    "unitCount",
+                    "unitOfMeasurement",
+                    "containerName"
+                  ]
+                }
+              },
+              "required": [
+                "itemID",
+                "brandID",
+                "name",
+                "brandName"
+              ]
+            }
+          },
+          "glassware": {
+            "type": "object",
+            "$schema": "http://json-schema.org/schema",
+            "properties": {
+              "glasswareID": {
+                "type": "string"
+              },
+              "imageURL": {
+                "type": "number",
+                "description": "A path to the glassware's image."
+              },
+              "description": {
+                "type": "integer",
+                "description": "A show description of the glassware."
+              },
+              "name": {
+                "type": "integer",
+                "description": "A name for the glassware, e.g. Pint Glass."
+              },
+              "brandIDs": {
+                "type": "array",
+                "description": "An array identifying brands associated with the glassware",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "glasswareID",
+              "brandIDs"
+            ]
+          }
+        },
+        "required": [
+          "brandID",
+          "name"
+        ]
+      }
+    }
+  },
+  "required": [
+    "cocktailID"
+  ]
+}

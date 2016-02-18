@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/schema",
+  "description": "A beverage product that may be purchased.",
+  "properties": {
+    "itemID": {
+      "type": "string"
+    },
+    "brandID": {
+      "type": "string",
+      "description": "The item's parent brand."
+    },
+    "brandName": {
+      "type": "string",
+      "description": "The name of the item's parent brand."
+    },
+    "inventoryCount": {
+      "type": "integer",
+      "description": "The number of items currently in stock. Specify 0 for out of stock or unavailable items and -1 for unknown."
+    },
+    "name": {
+      "type": "string",
+      "description": "A name for the item displayable to the user."
+    },
+    "popularityRating": {
+      "type": "number",
+      "description": "An arbitrary float representing how popular this item is. Items with greater popularityRatings will sort to the top by default."
+    },
+    "price": {
+      "$ref": "price.json"
+    },
+    "package": {
+      "$ref": "package.json"
+    }
+  },
+  "required": [
+    "itemID",
+    "brandID",
+    "name",
+    "brandName"
+  ]
+}

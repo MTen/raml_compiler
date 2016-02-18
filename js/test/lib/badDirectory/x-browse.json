@@ -1,0 +1,94 @@
+{
+  "promotions": [
+    {
+      "promotionID": "1",
+      "bannerImageURL": "image.png",
+      "bannerPressStateImageURL": "image.png",
+      "brand": {},
+      "cocktail": {
+        "cocktailID": "1",
+        "name": "The McIntosh",
+        "menuItemDescription": "Bud Light, Dewar’s Scotch, pomegranate juice, and a splash of cranberry juice",
+        "imageURL": "image.png",
+        "backgroundImageURL": "image.png",
+        "directions": "Combine ingredients in glass, top with Bud Light",
+        "equipment": "Pint glass",
+        "ingredients": ".75 oz Dewar’s Scotch\n1 oz Pomegranate Juice\n1 oz Apple juice\nSplash Cranberry juice\n12 oz Bud Light",
+        "isFeatured": true,
+        "sortOrder": 1,
+        "brands": [
+          {
+            "brandID": "7121",
+            "alcoholContent": "4.2%",
+            "countryOfOrigin": "USA",
+            "family": "BUD/LT/SELECT",
+            "flavorDescription": "Bud Light® Lime is a new light beer with the superior drinkability of Bud Light and the taste of fresh-squeezed 100% natural lime.",
+            "foodPairing": "",
+            "manufacturer": "Anheuser-Busch InBev",
+            "marketingCopy": "Premium Light – American-style light lager that combines the superior drinkability of Bud Light with 100 percent natural lime flavor. Light-bodied brew with a delicate malt sweetness, clean, crisp finish and the taste of a fresh squeezed lime for ultimate refreshment. Perfect for summer refreshment, Bud Light Lime offers adults the citrus taste expected from a fresh squeezed lime, without a trip to the produce aisle.",
+            "name": "Bud Light Lime",
+            "romanceCopy": "Bud Light Lime tastes great ice cold, straight from the bottle or over ice, and pairs well with spicy, grilled meats and fresh fruits and vegetables.\nPerfect for summer refreshment, Bud Light Lime offers adults the citrus taste expected from a fresh squeezed lime, without a trip to the produce aisle.",
+            "servingTemperature": "",
+            "style": "",
+            "trueBrewer": "Anheuser-Busch",
+            "whyBuy": "Premium Light – American-Style light lager. It's Bud Light, With a twist",
+            "imageURL": "budlight_lime.png",
+            "items": [],
+            "glassware": {
+              "glasswareID": "1",
+              "imageURL": "pilsner.png",
+              "description": "Versatile glass, designed for durability and stacking. Historically served with stouts, porters, and English ales.",
+              "name": "Pint"
+            }
+          }
+        ]
+      },
+      "items": [],
+      "link": ""
+    },
+    {
+      "promotionID": "2",
+      "bannerImageURL": "image.png",
+      "bannerPressStateImageURL": "image.png",
+      "brand": {
+        "brandID": "7121",
+        "alcoholContent": "4.2%",
+        "countryOfOrigin": "USA",
+        "family": "BUD/LT/SELECT",
+        "flavorDescription": "Bud Light® Lime is a new light beer with the superior drinkability of Bud Light and the taste of fresh-squeezed 100% natural lime.",
+        "foodPairing": "",
+        "manufacturer": "Anheuser-Busch InBev",
+        "marketingCopy": "Premium Light – American-style light lager that combines the superior drinkability of Bud Light with 100 percent natural lime flavor. Light-bodied brew with a delicate malt sweetness, clean, crisp finish and the taste of a fresh squeezed lime for ultimate refreshment. Perfect for summer refreshment, Bud Light Lime offers adults the citrus taste expected from a fresh squeezed lime, without a trip to the produce aisle.",
+        "name": "Bud Light Lime",
+        "romanceCopy": "Bud Light Lime tastes great ice cold, straight from the bottle or over ice, and pairs well with spicy, grilled meats and fresh fruits and vegetables.\nPerfect for summer refreshment, Bud Light Lime offers adults the citrus taste expected from a fresh squeezed lime, without a trip to the produce aisle.",
+        "servingTemperature": "",
+        "style": "",
+        "trueBrewer": "Anheuser-Busch",
+        "whyBuy": "Premium Light – American-Style light lager. It's Bud Light, With a twist",
+        "imageURL": "budlight_lime.png",
+        "items": [],
+        "glassware": {
+          "glasswareID": "1",
+          "imageURL": "pilsner.png",
+          "description": "Versatile glass, designed for durability and stacking. Historically served with stouts, porters, and English ales.",
+          "name": "Pint"
+        }
+      },
+      "cocktail": {},
+      "items": [],
+      "link": ""
+    }
+  ],
+  "categories": [
+    {
+      "categoryID": "1",
+      "type": "brandFamily",
+      "name": "Bud Light",
+      "sortOrder": 3,
+      "iconImageURL": "budLightBrowse.png",
+      "backgroundImageURL": "budLightBackgroundBrowse.png",
+      "brands": [],
+      "items": []
+    }
+  ]
+}

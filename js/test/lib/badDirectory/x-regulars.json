@@ -1,0 +1,46 @@
+[
+  {
+    "itemID": "55345",
+    "name": "1/2 Barrel",
+    "inventoryCount": 1,
+    "popularityRating": 100,
+    "brandID": "BDLLM",
+    "brandName": "Bud Light Lime",
+    "price": {
+      "priceID": "1",
+      "unitPrice": 83
+    },
+    "package": {
+      "packageID": "1",
+      "name": "1/2 Barrel",
+      "imageURL": "keg.png",
+      "itemCount": 1,
+      "itemSize": 1984,
+      "containerCount": 1,
+      "unitOfMeasurement": "OZ",
+      "containerName": "Keg"
+    }
+  },
+  {
+    "itemID": "40130",
+    "name": "4 Ct 6 Pk 12 Oz Bottles",
+    "inventoryCount": 1,
+    "popularityRating": 86,
+    "brandID": "BDLLM",
+    "brandName": "Bud Light Lime",
+    "price": {
+      "priceID": "2",
+      "unitPrice": 23.9
+    },
+    "package": {
+      "packageID": "2",
+      "name": "4 Six Packs, 12 OZ Bottles",
+      "imageURL": "bottle.png",
+      "itemCount": 6,
+      "itemSize": 12,
+      "containerCount": 4,
+      "unitOfMeasurement": "OZ",
+      "containerName": "Bottle"
+    }
+  }
+]
