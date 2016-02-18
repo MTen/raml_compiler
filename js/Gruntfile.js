@@ -22,7 +22,7 @@ module.exports = function(grunt) {
         tasks: ["exec:mocha"]
       },
       tests: {
-        files: "test/tests/*.js",
+        files: "test/*.js",
         tasks: ['exec:mocha']
       },
       src: {
