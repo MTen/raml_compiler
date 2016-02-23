@@ -18,13 +18,13 @@ describe("ramlCompiler", function(){
 
     it("last value is x-wholesalers.json", function(){
       var lastFile = directoryArray.last;
-      assert.equal,(lastFile, "x-wholesalers.json", "directory not right!" );
+      assert.equal(lastFile, "x-wholesalers.json", "directory not right!" );
     });
 
     it("has more than 10 files in the array", function(){
       var arrayLength = directoryArray.length;
       assert.isTrue(arrayLength > 10);
-    })
+    });
 
   });
 
@@ -42,10 +42,19 @@ describe("ramlCompiler", function(){
       assert.equal(ramlCompiler.execute(directoryArray), "schema compiled");
     });
 
-    it("should complain", function(){
-      assert.equal(ramlCompiler.execute(badDir), "schema compiled");
+    it('does not process examples and raml files', function(){
+      ramlCompiler.execute(directoryArray)
+      var outputDirectory = appRoot+"/test/output/";
+      console.log(outputDirectory);
+      var output = fs.readdirSync(outputDirectory);
+      console.log(fs.readdirSync(outputDirectory.toString()));
+      assert.lengthOf(output, 22, "only json files were processed")
+    });
 
-    })
+    //it("should complain", function(){
+    //  var bd = ramlCompiler.fileList(badDirectory);
+    //  assert.equal(ramlCompiler.execute(bd), "schema compiled");
+    //})
 
   });
 

@@ -1,9 +1,10 @@
 var
   fs = require('fs'),
   refParser = require('json-schema-ref-parser'),
-
+  helpers = require("./helpers"),
+  _ = require('underscore'),
   // private fields
-  output = process.cwd()+"/test/output/",
+  output = process.cwd()+"/output/",
   targetDir = "";
 
 
@@ -11,44 +12,54 @@ module.exports = {
 
   // iterates over each item in the directory
   //public
-  execute: function(dir) {
+  execute: function(dir, done) {
     try {
       for (var file = 0, d = dir, last = dir.length; file < last; file++) {
         this.compileSchema(dir[file])
       }
-      return "schema compiled"
+      "schema compiled";
+      done();
     }
     catch(e) {
       return e.message;
     }
+
   },
   //public
   // gets files from directory
   fileList: function (dir) {
     this.targetDir = dir;
     this.fileArray = fs.readdirSync(dir);
+    //this.fileArray = _.without(this.fileArray, 'api.raml');
     return this.fileArray;
   },
-
-
 
   // private
   // compilesSchema
   compileSchema: function(file) {
     try {
-      refParser.bundle(this.targetDir + "/" + file, function (err, schema) {
-        var num = 0;
-        fs.writeFile(output + file, JSON.stringify(schema, null, 2), function (err) {
-          //throws error if there is a problem writing a file
+      if(file.match(/(api.raml|^x-)/)){
+      // instead of nesting a not statement
+      }else {
+        refParser.bundle(this.targetDir + "/" + file, function (err, schema) {
+
           if (err) {
-            return console.log(err + " :: file writing problem");
+            throw new Error(err + " :: target file error");
           } else {
-            num += 1
-          }})
-      })
+
+            fs.writeFile(output + file, JSON.stringify(schema, null, 2), function (err) {
+
+              //throws error if there is a problem writing a file
+              if (err) {
+                throw new Error(err + " :: file writing error");
+              }
+            })
+          }
+        })
+      }
     } catch (err) {
-      // throws error if file is not found
-      return console.error(err + " :: cannot find target file.");
+      // prevents bubbling
+      return console.error(err + " :: bubble wrapper");
     }
   }
 

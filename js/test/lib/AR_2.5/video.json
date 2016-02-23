@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "type": "object",
+    "description": "A video from AB Marketing.",
+    "properties": {
+        "videoID": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name displayed for this video."
+        },
+        "description": {
+            "type": "string",
+            "description": "A short description of the video."
+        },
+        "duration": {
+            "type": "integer",
+            "description": "The duration of the video in seconds."
+        },
+        "url": {
+            "type": "string",
+            "description": "A URL from which this video may be streamed."
+        },
+        "date": {
+            "type": "string",
+            "description": "The date this video was published. Preferred format: yyyy-MM-dd HH:mm:ss."
+        },
+        "isFeatured": {
+            "type": "boolean",
+            "description": "Featured videos may receive special UI treatment or be sorted to the top of the video list."
+        }
+    },
+    "required": [
+        "id",
+        "name",
+        "url"
+    ]
+}

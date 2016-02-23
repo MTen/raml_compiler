@@ -1,0 +1,54 @@
+{
+    "type": "object",
+    "$schema": "http://json-schema.org/draft-03/schema",
+    "properties": {
+        "cocktailID": {
+            "type": "string",
+        },
+        "menuItemDescription": {
+            "type": "string",
+            "description": "A description of the cocktail that would be suitable for a menu."
+        },
+        "backgroundImageURL": {
+            "type": "string",
+            "description": "A background image on which the primary cocktail image is displayed."
+        },
+        "imageURL": {
+            "type": "string",
+            "description": "The primary image of the cocktail."
+        },
+        "directions": {
+            "type": "string",
+            "description": "A description of how to prepare the cocktail"
+        },
+        "equipment": {
+            "type": "string",
+            "description": "Equipment needed to prepare the cocktail"
+        },
+        "ingredients": {
+            "type": "string",
+            "description": "The cocktail's ingredients"
+        },
+        "isFeatured": {
+            "type": "boolean",
+            "description": "A single featured cocktail will display prominently in the application."
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the cocktail."
+        },
+        "sortOrder": {
+            "type": "integer",
+            "description": "Determines the order in which the cocktail will be displayed. Cocktails are sorted from lowest sortOrder to highest."
+        },
+        "brands": {
+            "type": "array",
+            "items": {
+                "$ref": "brand.json"
+            }
+        }
+    },
+    "required": [
+        "cocktailID"
+    ]
+}
