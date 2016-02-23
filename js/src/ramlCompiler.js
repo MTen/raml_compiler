@@ -1,24 +1,24 @@
+// library imports
 var
   fs = require('fs'),
   refParser = require('json-schema-ref-parser'),
-  helpers = require("./helpers"),
-  _ = require('underscore'),
+  _ = require('underscore');
+
   // private fields
-  output = process.cwd()+"/output/",
-  targetDir = "";
+  var output = process.cwd()+"/output/";
+  var targetDir = "";
 
 
 module.exports = {
 
   // iterates over each item in the directory
   //public
-  execute: function(dir, done) {
+  execute: function(dir) {
     try {
       for (var file = 0, d = dir, last = dir.length; file < last; file++) {
         this.compileSchema(dir[file])
       }
       "schema compiled";
-      done();
     }
     catch(e) {
       return e.message;
