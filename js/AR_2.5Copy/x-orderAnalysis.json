@@ -1,0 +1,49 @@
+{
+  "orderAnalysisID": "10",
+  "startDate": "2014-10-11 00:00:00",
+  "endDate": "2014-10-17 00:00:00",
+  "itemCount": 25,
+  "cost": 1008.5,
+  "analysisOfPreviousYear": {
+    "orderAnalysisID": "1",
+    "startDate": "2013-10-11 00:00:000",
+    "endDate": "2014-10-17 00:00:00",
+    "itemCount": 18,
+    "cost": 800.2
+  },
+  "orderItems": [
+    {
+      "orderItemID": "3",
+      "isCredit": false,
+      "cost": 40.32,
+      "orderID": "1",
+      "itemID": "33495",
+      "itemCount": 25,
+      "item": {
+        "itemID": "55399",
+        "brandID": "BDLLM",
+        "name": "1/2 Barrel",
+        "popularityRating": 100,
+        "price": {
+          "priceID": "3",
+          "itemID": "55399",
+          "unitPrice": 40.32,
+          "startDate": "2014-10-11 00:00:00",
+          "endDate": "2014-12-11 00:00:00",
+          "discount": {},
+          "estimate": {}
+        },
+        "package": {
+          "packageID": "1",
+          "name": "1/2 Barrel",
+          "imageURL": "keg.png",
+          "itemCount": 1,
+          "itemSize": 1984,
+          "containerCount": 1,
+          "unitOfMeasurement": "OZ",
+          "containerName": "Keg"
+        }
+      }
+    }
+  ]
+}

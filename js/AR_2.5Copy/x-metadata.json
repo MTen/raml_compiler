@@ -1,0 +1,12 @@
+{
+  "stringResourceURL": "http://www.tapwiser.com/api/resourceURL.json",
+  "currentAppVersion": "2.2",
+  "minimumVersionRequired": "3.0",
+  "currentAndroidAppVersion": "1.1",
+  "minimumAndroidVersionRequired": "1.0",
+  "displayDiscounts": true,
+  "appURL": "https://itunes.apple.com/us/genre/ios/id36?mt=8",
+  "androidAppURL": "https://play.google.com/store/apps/details?id=com.abinbev.android.tapwiser",
+  "customerServicePhone": "347-493-8660",
+  "customerServiceEmail": "tapwiser@fuzzproductions.com"
+}

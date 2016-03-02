@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/schema",
+  "properties": {
+    "packageID": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "imageURL": {
+      "type": "string"
+    },
+    "itemCount": {
+      "type": "integer",
+      "description": "The number of bottles/cans/kegs in a single container. If a package contains 2 6-packs, 6."
+    },
+    "itemSize": {
+      "type": "number",
+      "description": "The volume of a single keg, bottle, or can in a package."
+    },
+    "returnable": {
+      "type": "boolean",
+      "description": "Marks whether the package may be returned or not."
+    },
+    "unitCount": {
+      "type": "number",
+      "description": "The number of containers in a package. If a package contains 2 6-packs, 2."
+    },
+    "unitOfMeasurement": {
+      "type": "string",
+      "description": "OZ, l, etc."
+    },
+    "containerName": {
+      "type": "string",
+      "description": "Keg, Bottle, Can, etc."
+    },
+    "caseEquivalency": {
+      "type": "number",
+      "description": "The number of cases the package equates to. A case is defined as 24 x 12 fl oz containers"
+    },
+    "adjustedCaseEquivalency": {
+      "type": "number",
+      "description": "The value used to determine this packages contribution to achieving the order minimum. This property may be used to increase or reduce the effect of adding a given package to an order."
+    }
+  },
+  "required": [
+    "packageID",
+    "itemCount",
+    "itemSize",
+    "unitCount",
+    "unitOfMeasurement",
+    "containerName"
+  ]
+}

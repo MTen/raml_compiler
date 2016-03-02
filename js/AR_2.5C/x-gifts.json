@@ -1,0 +1,46 @@
+[
+  {
+    "giftID": "56130",
+    "unitPoints": 600,
+    "item": {
+      "itemID": "77345",
+      "inventoryCount": 6,
+      "name": "1/2 Barrel",
+      "price": {
+        "priceID": "1",
+        "unitPrice": 83
+      },
+      "package": {
+        "packageID": "1",
+        "name": "1/2 Barrel",
+        "itemCount": 1,
+        "itemSize": 1984,
+        "unitCount": 1,
+        "unitOfMeasurement": "OZ",
+        "containerName": "Keg"
+      }
+    }
+  },
+  {
+    "giftID": "40130",
+    "unitPoints": 300,
+    "item": {
+      "itemID": "55345",
+      "inventoryCount": 1,
+      "name": "1/2 Barrel",
+      "price": {
+        "priceID": "1",
+        "unitPrice": 83
+      },
+      "package": {
+        "packageID": "1",
+        "name": "1/2 Barrel",
+        "itemCount": 1,
+        "itemSize": 1984,
+        "unitCount": 1,
+        "unitOfMeasurement": "OZ",
+        "containerName": "Keg"
+      }
+    }
+  }
+]

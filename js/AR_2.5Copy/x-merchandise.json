@@ -1,0 +1,16 @@
+[
+  {
+    "merchandiseID": "175937",
+    "name": "BDL 10ox HW Trans 2500/ca DS",
+    "description": "Heavyweight translucent cup. Case of 2500.",
+    "shippingInfo": "Ships directly from the vendor via truck within 2-3 business days.",
+    "merchandiseTypeID": "1",
+    "family": "Budweiser",
+    "romanceCopy": "",
+    "imageURL": "175937.png",
+    "price": {
+      "priceID": "2",
+      "points": 1000
+    }
+  }
+]

@@ -1,0 +1,186 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/schema",
+  "properties": {
+    "itemID": {
+      "type": "string"
+    },
+    "brandID": {
+      "type": "string",
+      "description": "The item's parent brand."
+    },
+    "brandName": {
+      "type": "string",
+      "description": "The name of the item's parent brand."
+    },
+    "inventoryCount": {
+      "type": "integer",
+      "description": "The number of items currently in stock. Specify 0 for out of stock or unavailable items and -1 for unknown."
+    },
+    "minimumOrderQuantity": {
+      "type": "integer",
+      "description": "How many total items a user must have in their truck in order to ship an order including this item."
+    },
+    "name": {
+      "type": "string",
+      "description": "A name for the item displayable to the user."
+    },
+    "popularityRating": {
+      "type": "number",
+      "description": "An arbitrary float representing how popular this item is. Items with greater popularityRatings will sort to the top by default."
+    },
+    "price": {
+      "type": "object",
+      "properties": {
+        "priceID": {
+          "type": "string"
+        },
+        "itemIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unitPrice": {
+          "type": "number",
+          "description": "The top-line price for the item."
+        },
+        "startDate": {
+          "type": "string",
+          "description": "The effective starting date of the price.Preferred format: yyyy-MM-dd HH:mm:ss."
+        },
+        "endDate": {
+          "type": "string",
+          "description": "The date this price will expire. Preferred format: yyyy-MM-dd HH:mm:ss."
+        },
+        "discounts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "discountID": {
+                "type": "string"
+              },
+              "itemIDs": {
+                "type": "array",
+                "description": "An array of itemIDs that describe which items this discount is associated with."
+              },
+              "type": {
+                "type": "string",
+                "description": "Specify AO, PO, CF. AO = Amount off, PO = Percent Off, CF = Credit Free."
+              },
+              "earnLevelAmount": {
+                "type": "number",
+                "description": "The amount that must be spent to earn a discount"
+              },
+              "earnLevelQuantity": {
+                "type": "integer",
+                "description": "The number of items that must be purchased to earn a discount"
+              },
+              "amountOff": {
+                "type": "number",
+                "description": "Price off a single item"
+              },
+              "percentOff": {
+                "type": "number",
+                "description": "Percent off a single item"
+              },
+              "earnedItem": {
+                "$ref": "#",
+                "description": "The item earned by a CF type discount"
+              },
+              "startDate": {
+                "type": "string",
+                "description": "Preferred format: yyyy-MM-dd HH:mm:ss."
+              },
+              "endDate": {
+                "type": "string",
+                "description": "Preferred format: yyyy-MM-dd HH:mm:ss."
+              },
+              "discountAmount": {
+                "type": "number",
+                "description": "The total value of the discount."
+              }
+            },
+            "required": [
+              "discountID",
+              "itemIDs",
+              "type",
+              "startDate"
+            ]
+          }
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#"
+          }
+        }
+      },
+      "required": [
+        "priceID",
+        "unitPrice"
+      ]
+    },
+    "package": {
+      "type": "object",
+      "properties": {
+        "packageID": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "imageURL": {
+          "type": "string"
+        },
+        "itemCount": {
+          "type": "integer",
+          "description": "The number of bottles/cans/kegs in a single container. If a package contains 2 6-packs, 6."
+        },
+        "itemSize": {
+          "type": "number",
+          "description": "The volume of a single keg, bottle, or can in a package."
+        },
+        "returnable": {
+          "type": "boolean",
+          "description": "Marks whether the package may be returned or not."
+        },
+        "unitCount": {
+          "type": "number",
+          "description": "The number of containers in a package. If a package contains 2 6-packs, 2."
+        },
+        "unitOfMeasurement": {
+          "type": "string",
+          "description": "OZ, l, etc."
+        },
+        "containerName": {
+          "type": "string",
+          "description": "Keg, Bottle, Can, etc."
+        },
+        "caseEquivalency": {
+          "type": "number",
+          "description": "The number of cases the package equates to. A case is defined as 24 x 12 fl oz containers"
+        },
+        "adjustedCaseEquivalency": {
+          "type": "number",
+          "description": "The value used to determine this packages contribution to achieving the order minimum. This property may be used to increase or reduce the effect of adding a given package to an order."
+        }
+      },
+      "required": [
+        "packageID",
+        "itemCount",
+        "itemSize",
+        "unitCount",
+        "unitOfMeasurement",
+        "containerName"
+      ]
+    }
+  },
+  "required": [
+    "itemID",
+    "brandID",
+    "name",
+    "brandName"
+  ]
+}

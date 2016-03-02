@@ -6,21 +6,25 @@ var
 
   // private fields
   var output = process.cwd()+"/output/";
+  var temp  = process.cwd()+"/temp/";
   var targetDir = "";
 
 
 module.exports = {
 
-  // iterates over each item in the directory
+  // iterates over each item in the directory compiles the schema.
   //public
-  execute: function(dir) {
+  execute: function(dir, output) {
     try {
-      for (var file = 0, d = dir, last = dir.length; file < last; file++) {
-        this.compileSchema(dir[file])
+      for (var file = 0, dirLength = dir.length, last = dirLength; file < last; file++) {
+        this.checkFileType(dir[file]);
+
+        this.compileSchema(dir[file]);
+        this.cleanSchema(dir[file]);
       }
-      "schema compiled";
     }
     catch(e) {
+      console.log(e.message);
       return e.message;
     }
 
@@ -30,38 +34,87 @@ module.exports = {
   fileList: function (dir) {
     this.targetDir = dir;
     this.fileArray = fs.readdirSync(dir);
-    //this.fileArray = _.without(this.fileArray, 'api.raml');
     return this.fileArray;
+  },
+
+  checkFileType: function(file) {
+    if (file.match(/(\.json)/)) {
+      return "json"
+    }
+    else if(file.match(/(raml)/)){
+      return "raml"
+    }
+    else{
+      return "other"
+    }
   },
 
   // private
   // compilesSchema
   compileSchema: function(file) {
     try {
-      if(file.match(/(api.raml|^x-)/)){
-      // instead of nesting a not statement
-      }else {
-        refParser.bundle(this.targetDir + "/" + file, function (err, schema) {
+      var fileLocation = this.targetDir + "/" + file;
+      var bundledSchema = "";
+      refParser.bundle(fileLocation, bundledSchema, function (err, schema) {
+            if (err) {
+              throw new Error(err + " :: target file error");
+            } else {
+              bundledSchema = JSON.stringify(schema, null, 2);
+              fs.writeFileSync(output + file, bundledSchema)
+            }
+          });
+        }else if(file.match(/(raml)/)) {
 
-          if (err) {
-            throw new Error(err + " :: target file error");
-          } else {
-
-            fs.writeFile(output + file, JSON.stringify(schema, null, 2), function (err) {
-
-              //throws error if there is a problem writing a file
-              if (err) {
-                throw new Error(err + " :: file writing error");
-              }
-            })
-          }
-        })
+        }else{
+          console.log("File does not compile: " + file)
       }
     } catch (err) {
+
       // prevents bubbling
-      return console.error(err + " :: bubble wrapper");
+      return err + console.error(err + " :: bubble wrapper :: compileSchema");
+    }
+  },
+
+  copyRaml: function(file) {
+    var raml = fs.readFileSync(fileLocation);
+    fs.writeFileSync(output + file, raml);
+  },
+
+  cleanSchema: function(file) {
+    try {
+      var fileLocation = this.output + "/" + file;
+      var bundledSchema = "";
+      if (file.match(/(\.json)/)) {
+
+          }
+        });
+      }else if(file.match(/(raml)/)) {
+        var raml = fs.readFileSync(fileLocation);
+        fs.writeFileSync(output + file, raml);
+      }else{
+        console.log("File does not compile: " + file)
+      }
+    } catch (err) {
+
+      // prevents bubbling
+      return err + console.error(err + " :: bubble wrapper :: compileSchema");
     }
   }
+
+
+  // todo function: Remove schema declaration from body and then place it in the root.
+  // remove target string
+
+  // write to temp
+
+  // open temp file
+
+  // inject schema declaration in root
+
+  // pass to deref parser
+
+
+  //fs.writeFileSync(target, result);
 
 };
 

@@ -1,0 +1,28 @@
+{
+  "type": "array",
+  "$schema": "http://json-schema.org/schema",
+  "required": true,
+  "items": {
+    "type": "object",
+    "description": "The details related to a potential delivery time.",
+    "properties": {
+      "deliveryWindowID": {
+        "type": "string",
+        "description": "A unique identifier for a deliveryWindow"
+      },
+      "startDate": {
+        "type": "string",
+        "description": "The beginning of the delivery window. Preferred format: yyyy-MM-dd HH:mm:ss-Z or yyyy-MM-dd HH:mm:ss."
+      },
+      "endDate": {
+        "type": "string",
+        "description": "The end of the delivery window. Preferred format: yyyy-MM-dd HH:mm:ss-Z or yyyy-MM-dd HH:mm:ss."
+      }
+    },
+    "required": [
+      "deliveryWindowID",
+      "startDate",
+      "endDate"
+    ]
+  }
+}

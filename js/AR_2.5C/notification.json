@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/schema",
+  "properties": {
+    "notificationID": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "description": "A displayable description of the notification."
+    },
+    "isEnabled": {
+      "type": "boolean",
+      "description": "An indicator of whether the user has enabled this notification or not. By default, true."
+    },
+    "day": {
+      "type": "integer",
+      "description": "Day of the week, enumerated. Sunday = 0, Saturday = 6. -1 denotes a notification that has no relationship to a given day."
+    }
+  },
+  "required": [
+    "notificationID",
+    "description"
+  ]
+}

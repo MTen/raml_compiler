@@ -1,0 +1,199 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/schema",
+  "properties": {
+    "orderID": {
+      "type": "string"
+    },
+    "placementDate": {
+      "type": "string",
+      "description": "The date the order was placed. Preferred format: yyyy-MM-dd HH:mm:ss."
+    },
+    "isFavorite": {
+      "type": "boolean",
+      "description": "Indicates if the user has favorited this order or not."
+    },
+    "name": {
+      "type": "string",
+      "description": "A name the user has assigned to this order."
+    },
+    "note": {
+      "type": "string",
+      "description": "A note the user has added to this order."
+    },
+    "requestedKegReturn": {
+      "type": "boolean",
+      "description": "An indicator that the user would like to return kegs."
+    },
+    "orderState": {
+      "type": "string",
+      "description": "A status used to indicate the current step at which an order is at."
+    },
+    "orderProgress": {
+      "type": "number",
+      "description": "A percentage based number ranging from 0 to 100 indicating the progress of the order and how close to completion it is."
+    },
+    "invoiceID": {
+      "type": "string",
+      "description": "An internal invoice id."
+    },
+    "physicalInvoiceID": {
+      "type": "string",
+      "description": "An id of an invoice reviewed by a government resource."
+    },
+    "pricing": {
+      "description": "An encapsulation of the pricing details associated with this order.",
+      "type": "object",
+      "properties": {
+        "pricingID": {
+          "type": "string"
+        },
+        "cost": {
+          "type": "number",
+          "description": "The final cost of the order after taxes, charges, and discounts have been applied."
+        },
+        "taxAmount": {
+          "type": "number",
+          "description": "The total tax charged to the order."
+        },
+        "chargeAmount": {
+          "type": "number",
+          "description": "The total cost of charges to the order, excluding tax."
+        },
+        "grossSalesAmount": {
+          "type": "number",
+          "description": "The total cost of the order, excluding deposits, taxes, and other charges."
+        },
+        "depositAmount": {
+          "type": "number",
+          "description": "The cost of deposits paid when purchasing cans, bottles, and kegs."
+        },
+        "salesQuantity": {
+          "type": "integer",
+          "description": "The number of items purchased."
+        },
+        "discounts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "discountID": {
+                "type": "string"
+              },
+              "itemIDs": {
+                "type": "array",
+                "description": "An array of itemIDs that describe which items this discount is associated with."
+              },
+              "type": {
+                "type": "string",
+                "description": "Specify AO, PO, CF. AO = Amount off, PO = Percent Off, CF = Credit Free."
+              },
+              "earnLevelAmount": {
+                "type": "number",
+                "description": "The amount that must be spent to earn a discount"
+              },
+              "earnLevelQuantity": {
+                "type": "integer",
+                "description": "The number of items that must be purchased to earn a discount"
+              },
+              "amountOff": {
+                "type": "number",
+                "description": "Price off a single item"
+              },
+              "percentOff": {
+                "type": "number",
+                "description": "Percent off a single item"
+              },
+              "earnedItem": {
+                "$ref": "#/properties/pricing/properties/discounts/items/properties/earnedItem/properties/price/properties/items/items",
+                "description": "The item earned by a CF type discount"
+              },
+              "startDate": {
+                "type": "string",
+                "description": "Preferred format: yyyy-MM-dd HH:mm:ss."
+              },
+              "endDate": {
+                "type": "string",
+                "description": "Preferred format: yyyy-MM-dd HH:mm:ss."
+              },
+              "discountAmount": {
+                "type": "number",
+                "description": "The total value of the discount."
+              }
+            },
+            "required": [
+              "discountID",
+              "itemIDs",
+              "type",
+              "startDate"
+            ]
+          }
+        },
+        "pointsEarned": {
+          "type": "number",
+          "description": "The total number of points earned when that order was placed."
+        },
+        "orderItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "orderItemID": {
+                "type": "string"
+              },
+              "cost": {
+                "type": "number",
+                "description": "The cose of the orderItem."
+              },
+              "orderID": {
+                "type": "string",
+                "description": "The ID of the associated order."
+              },
+              "invoiceID": {
+                "type": "string",
+                "description": "The ID of the associated invoice."
+              },
+              "itemID": {
+                "type": "string",
+                "description": "The ID of the associated item. Note, either item or itemID is required."
+              },
+              "merchandiseID": {
+                "type": "string",
+                "description": "The ID of the associated merchandise."
+              },
+              "itemCount": {
+                "type": "integer",
+                "description": "The number of items ordered."
+              },
+              "item": {
+                "$ref": "#/properties/pricing/properties/discounts/items/properties/earnedItem/properties/price/properties/items/items",
+                "description": "The associated item. Note, either item or itemID is required."
+              },
+              "pricingCondition": {
+                "type": "string",
+                "description": "The condition by which this object was priced."
+              }
+            },
+            "required": [
+              "orderItemID",
+              "cost",
+              "itemCount"
+            ]
+          }
+        },
+        "freeGoodItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/properties/pricing/properties/orderItems/items"
+          }
+        }
+      },
+      "required": [
+        "pricingID"
+      ]
+    }
+  },
+  "required": [
+    "orderID"
+  ]
+}
