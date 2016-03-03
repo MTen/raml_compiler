@@ -16,6 +16,12 @@ if(tests["Response Code " + responseCode.code ] = responseCode.code === 200){
         //use google chrome dev tools console to inspect error objects
         console.log(err);
       });
+
+      if(multiple.missing.length > 0) {
+        multiple.missing.forEach(function(el){
+          tests["Referenced schema is not present: " + el.message] = false;
+        });
+      }
     }
     tests['Empty Array Bypass test'] = JSON.stringify(data).indexOf('[]') === -1;
     tests["Response time is less than 30 seconds"] = responseTime < 30000;
