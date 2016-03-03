@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "description": "A user representing the interests of an account.",
+  "properties": {
+    "custID": {
+      "type": "string",
+      "description": "The ID of the customer associated with this account."
+    },
+    "wholesalerID": {
+      "type": "string",
+      "description": "The ID of the wholesaler responsible for fulfilling the account's orders."
+    },
+    "name": {
+      "type": "string",
+      "description": "The account's name."
+    },
+    "deliveryWindows": {
+      "type": "array",
+      "description": "The account's delivery windows.",
+      "items": {
+        "$ref": "deliveryWindow.json"
+      }
+    },
+    "orderDeadlines": {
+      "type": "array",
+      "description": "The time at which an order must be placed on a given day for it to be processed by the following morning.",
+      "items": {
+        "day": {
+          "type": "integer",
+          "description": "Day of the week, enumerated. Sunday = 0, Saturday = 6."
+        },
+        "time": {
+          "type": "string",
+          "description": "The time of the order deadline in the format HH:mm:ss"
+        }
+      }
+    },
+    "representatives": {
+      "type": "array",
+      "description": "The account's sales representatives.",
+      "items": {
+        "$ref": "representative.json"
+      }
+    },
+    "administrators": {
+      "type": "array",
+      "description": "The administrators of this account. Note: these users do not appear in the users relationship.",
+      "items": {
+        "$ref": "user.json"
+      }
+    },
+    "users": {
+      "type": "array",
+      "description": "The users associated with this account. Note: administrators do not appear in this array.",
+      "items": {
+        "$ref": "user.json"
+      }
+    }
+  },
+  "required": [
+    "wholesalerID",
+    "custID",
+    "name",
+    "representatives",
+    "stuff"
+  ]
+}

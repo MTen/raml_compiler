@@ -1,0 +1,35 @@
+{
+      "itemID": "55345",
+      "brandID": "BDLLM",
+      "inventoryCount": 1,
+      "name": "1/2 Barrel",
+      "popularityRating": 100,
+      "price": {
+          "priceID": "1",
+          "unitPrice": 83,
+          "discounts": [{
+            "discountID": "1",
+            "itemID": "55345",
+            "type": "CF",
+            "earnLevelType": "Q",
+            "earnLevelAmount": 0,
+            "earnLevelQuantity": 4,
+            "amountOff": 0,
+            "percentOff": 0,
+            "subsitutePrice": 0,
+            "startDate": "2014-10-11 00:00:00",
+            "endDate": "2014-12-11 00:00:00"
+        }] 
+      },
+      "package": {
+          "packageID": "1",
+          "name": "1/2 Barrel",
+          "imageURL": "keg.png",
+          "itemCount": 1,
+          "itemSize": 1984,
+          "unitCount": 1,
+          "unitOfMeasurement": "OZ",
+          "containerName": "Keg",
+          "caseEquivalency": 10.0
+      }
+}

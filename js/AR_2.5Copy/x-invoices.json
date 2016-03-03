@@ -1,0 +1,26 @@
+[
+  {
+    "invoiceID": "1",
+    "date": "2014-10-11 00:00:00",
+    "cost": 290.45,
+    "taxAmount": 21.3,
+    "discountAmount": 32.5,
+    "invoiceItems": [
+      {
+        "orderItemID": "KTKC61",
+        "cost": 28.12,
+        "itemCount": 1,
+        "item": {
+          "brandID": "12642",
+          "brandName": "BECKS SP LIGHT",
+          "itemID": "KTKC6",
+          "name": "BCKLT 4/6/12 LN USP3",
+          "price": {
+            "priceID": "2790",
+            "unitPrice": 26.92
+          }
+        }
+      }
+    ]
+  }
+]

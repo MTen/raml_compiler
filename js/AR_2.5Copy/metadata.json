@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "properties": {
+    "stringResourceURL": {
+      "type": "string",
+      "required": true
+    },
+    "currentAppVersion": {
+      "type": "string",
+      "description": "If the iOS user’s version is less than this value, an update will be suggested.",
+      "required": true
+    },
+    "minimumVersionRequired": {
+      "type": "string",
+      "description": "If the iOS user's app version number is less than this version, an update is required.",
+      "required": true
+    },
+    "currentAndroidAppVersion": {
+      "type": "string",
+      "description": "If the Android user’s version is less than this value, an update will be suggested.",
+      "required": true
+    },
+    "minimumAndroidVersionRequired": {
+      "type": "string",
+      "description": "If the Android user's app version number is less than this version, an update is required.",
+      "required": true
+    },
+    "displayDiscounts": {
+      "type": "boolean",
+      "description": "Dictates whether the application should display discounts or not. By default, true.",
+      "required": true
+    },
+    "appURL": {
+      "type": "string",
+      "description": "A url where the newest version of the iOS app may be downloaded.",
+      "required": true
+    },
+    "androidAppURL": {
+      "type": "string",
+      "description": "A url where the newest version of the Android app may be downloaded.",
+      "required": true
+    },
+    "customerServicePhone": {
+      "type": "string",
+      "required": false
+    },
+    "customerServiceEmail": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

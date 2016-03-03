@@ -1,24 +1,16 @@
 #!/usr/local/bin/node
-var model, Model, Controller, controller, region, file;
-var path = require('path');
-global.appRoot = path.resolve(__dirname);
 
-Model = require('./src/model');
-Controller = require('./src/controller');
+// Program is executable by running node app.js rel-Directory"
+var args = process.argv[2];
+var ramlCompiler = require("./src/ramlCompiler.js");
+var output = process.cwd()+"/output/";
 
-model = new Model();
-controller = new Controller();
+  args = "/Users/mtener/Dropbox/fuzz/code/api-projects/tapwiser-parser/js/lib/tapwiser-api-specification/US_3.6";
+//  args = "/Users/mtener/Dropbox/fuzz/code/api-projects/tapwiser-parser/js/lib/testing/";
 
-// Executable by running node app.js
+  console.log(args);
 
-region = "/Users/mtener/Dropbox/fuzz/code/api-projects/tapwiser-parser/js/lib/CO_2.0/";
-file = "user.json";
+  var files = ramlCompiler.fileList(args);
+  ramlCompiler.execute(files);
 
-//Takes controller.setFile takes a File and assigns it in the controller object
-controller.setFile( region, file);
-
-
-// Takes a controller object and dereferences the json.
-model.parse(controller);
-
-console.log("Finished");
+//node app.js

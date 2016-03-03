@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "type": "object",
+    "description": "An object for featuring a brand or cocktail in the Browse portion of the app",
+    "properties": {
+        "promotionID": {
+            "type": "string"
+        },
+        "bannerImageURL": {
+            "type": "string",
+            "description": "The primary image associated with the promotion."
+        },
+        "bannerPressStateImageURL": {
+            "type": "string",
+            "description": "An image displayed when the promotion is pressed."
+        },
+        "brand": {
+            "$ref": "brand.json",
+            "description": "A brand associated with the promotion. Note: a promotion is always associated with a brand or a cocktail, but never both."
+        },
+        "cocktail": {
+            "$ref": "beerCocktail.json",
+            "description": "A cocktail associated with the promotion. Note: a promotion is always associated with a brand or a cocktail, but never both."
+        }
+    },
+    "required": [
+        "id"
+    ]
+}

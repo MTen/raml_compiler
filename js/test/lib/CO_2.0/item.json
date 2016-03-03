@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/schema",
+  "properties": {
+    "itemID": {
+      "type": "string"
+    },
+    "brandID": {
+      "type": "string",
+      "description": "The item's parent brand."
+    },
+    "brandName": {
+      "type": "string",
+      "description": "The name of the item's parent brand."
+    },
+    "name": {
+      "type": "string",
+      "description": "A name for the item displayable to the user."
+    },
+    "price": {
+      "$ref": "price.json"
+    },
+    "package": {
+      "$ref": "package.json"
+    }
+  },
+  "required": [
+    "itemID",
+    "brandID",
+    "name",
+    "brandName"
+  ]
+}

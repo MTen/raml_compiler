@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "description": "A user representing the interests of an account.",
+  "properties": {
+    "userID": {
+      "type": "string",
+      "description": "An email the user uses to log in with or another unique identifier."
+    },
+    "clientGrade": {
+      "type": "string",
+      "description": "A client grade potentially displayable to the user."
+    },
+    "email": {
+      "type": "string",
+      "description": "The user's email address."
+    },
+    "name": {
+      "type": "string",
+      "description": "The user's name."
+    },
+    "phone": {
+      "type": "string",
+      "description": "The user's phone number."
+    },
+    "points": {
+      "type": "number",
+      "description": "The number of points that the user has earned."
+    },
+    "accounts": {
+      "type": "array",
+      "items": {
+        "$ref": "account.json"
+      }
+    },
+    "required": [
+      "userID",
+      "name",
+      "email",
+      "accounts"
+    ]
+  }
+}

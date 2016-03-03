@@ -1,0 +1,21 @@
+{
+  "itemID": "55345",
+  "brandID": "BDLLM",
+  "brandName": "Kegco",
+  "name": "1/2 Barrel",
+  "price": {
+    "priceID": "1",
+    "unitPrice": 83
+  },
+  "package": {
+    "packageID": "1",
+    "name": "1/2 Barrel",
+    "imageURL": "keg.png",
+    "itemCount": 1,
+    "itemSize": 1984,
+    "returnable": true,
+    "unitCount": 1,
+    "unitOfMeasurement": "OZ",
+    "containerName": "Keg"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/schema",
+  "properties": {
+    "orderItems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "item": {
+            "$ref": "#/properties/orderItems/items/properties/item/properties/price/properties/items/items",
+            "description": "An item in the current order."
+          }
+        },
+        "itemCount": {
+          "type": "number",
+          "description": "The quantity of this item in the current order."
+        }
+      }
+    }
+  }
+}
