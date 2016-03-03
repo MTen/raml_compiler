@@ -6,10 +6,11 @@ var ramlCompiler = require("./src/ramlCompiler.js");
 var output = process.cwd()+"/output/";
 
   args = "/Users/mtener/Dropbox/fuzz/code/api-projects/tapwiser-parser/js/lib/tapwiser-api-specification/US_3.6";
+//  args = "/Users/mtener/Dropbox/fuzz/code/api-projects/tapwiser-parser/js/lib/testing/";
+
   console.log(args);
 
   var files = ramlCompiler.fileList(args);
-  console.log(files);
-  //ramlCompiler.execute(files);
+  ramlCompiler.execute(files);
 
 //node app.js
