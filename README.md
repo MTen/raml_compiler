@@ -28,16 +28,16 @@ Check your version of node
 ## Setup  
 ----  
 1. Clone this repo  
-	```git clone git@gitlab.fuzzhq.com:mtener/raml-compiler.git```
+	```git clone git@gitlab.fuzzhq.com:mtener/raml-compiler.git```  
 2. Change into the apps directory  
-	``` cd raml-parser ```
+	``` cd raml-parser ```  
 3. Install app dependencies  
-	``` npm install ```
+	``` npm install ```  
 4. Check to make sure things are kind of working  
-	```mocha```
+	```mocha```  
 5. Run the compiler on examples to get an idea of how it works  
 
-### Example 1
+#### Example 1
 1. Compile
 	``` npm run compile example/tapwiser-raml-spec ```  
 2. Check the output/schema folder for the result  
@@ -46,7 +46,7 @@ Check your version of node
 	``` npm run cleanup```
 	
 
-### Example 2
+#### Example 2
 1. Compile
 	``` npm run compile example/nested-definitions```  
 2. Check the output/schema folder for the result  
