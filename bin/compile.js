@@ -4,7 +4,8 @@ var config = require("../config.js");
 var args = process.argv[2];
 var ramlCompiler = require("../src/ramlCompiler.js");
 
-//  args = "/Users/mtener/Dropbox/fuzz/code/api-projects/tapwiser-parser/js/lib/testing/";
+args = args || appRoot+"/example/nested-definitions";
+
   var clearArgs = ramlCompiler.sanitizeInput(args);
   try {
     var files = ramlCompiler.fileList(clearArgs);

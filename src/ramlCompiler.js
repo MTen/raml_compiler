@@ -27,8 +27,8 @@ module.exports = {
             this.moveRamlFile(f);
             break;
           case "other":
-            console.log("This file is not parseable " + f);
-            break;
+            console.log(f + " is not parsable");
+            continue;
         }
       }
       return "schema compiled";
@@ -121,19 +121,26 @@ module.exports = {
   promiseCompile: function(file){
     try{
       var fileLocation = this.targetDir + "/" + file;
+      _this = this;
 
-      refParser.bundle(fileLocation, function(success){},function(err){
-        throw new Error(err + " :: target file error");
-      })
+      refParser.bundle(fileLocation)
         .then(function(schema){
-          this.removeSchemaDeclaration(schema);
+          _this.removeSchemaDeclaration(schema);
+          return schema;
+        }, function(err){
+          console.log(err);
         })
         .then(function(schema){
-          this.addSchemaDraft4Declaration(schema)
+          _this.addSchemaDraft4Declaration(schema);
+          return schema;
+        }, function(err){
+          console.log(err);
         })
         .then(function(schema){
           var bundledSchema = JSON.stringify(schema, null, 2);
           fs.writeFileSync(output + file, bundledSchema);
+        }, function(err){
+          console.log(err);
         })
     }catch(err){
       return err + console.error(err + " :: bubble wrapper :: compileSchema")
