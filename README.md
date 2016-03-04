@@ -8,6 +8,15 @@ Use cases:
 - Use in conjunction with the Atom editor, Api Work bench, and Raml Spec to validate that everything is kosher.
 
 
+## General Usage  
+
+1. cd into the ~/:path/:to/raml-compiler    
+2. npm run cleanup  
+3. npm run compile relative_or_absolute_dir_where_schema_is_located  
+4. open output/schema for compiled schema  
+
+Note: Argument after compile MUST be a single directory
+
 ## Dependencies  
 ---
 engine: >= node 4.5.103.33  
@@ -44,4 +53,3 @@ Check your version of node
 	``` cd output/schema && ls ```  
 3. Clean up the output folder for your next run  
 	``` npm run cleanup```
-
