@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "invoiceTypeID": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "description": "A displayable description of the invoiceType, e.g. \"Beer\"."
+    }
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#"
+}

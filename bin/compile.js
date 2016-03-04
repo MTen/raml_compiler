@@ -5,10 +5,12 @@ var args = process.argv[2];
 var ramlCompiler = require("../src/ramlCompiler.js");
 
 //  args = "/Users/mtener/Dropbox/fuzz/code/api-projects/tapwiser-parser/js/lib/testing/";
-  console.log(appRoot);
-  console.log(args);
-
-  var files = ramlCompiler.fileList(args);
-  ramlCompiler.executeCompiler(files);
+  var clearArgs = ramlCompiler.sanitizeInput(args);
+  try {
+    var files = ramlCompiler.fileList(clearArgs);
+    ramlCompiler.executeCompiler(files);
+  }catch(err){
+    err
+  }
 
 //node app.js

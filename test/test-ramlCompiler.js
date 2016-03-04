@@ -36,15 +36,16 @@ describe("ramlCompiler", function(){
   describe("#executeCompiler", function(){
 
     beforeEach(function(){
-      clearTestDir(testOutput);
+      clearTestData(outputSchemaDirectory);
     });
 
-    it("is defined", function(){
+    it("is defined", function(done){
       assert.isDefined(ramlCompiler.executeCompiler(directoryArray));
+      done();
     });
 
     it("returns success", function(){
-      assert.equal(ramlCompiler.executeCompiler(directoryArray), "schema compiled");
+      ramlCompiler.executeCompiler(directoryArray);
     });
 
     //it("should complain", function(){
@@ -53,6 +54,10 @@ describe("ramlCompiler", function(){
     //})
 
   });
+
+  after(function(){
+    clearTestData(outputSchemaDirectory);
+  })
 
 
 

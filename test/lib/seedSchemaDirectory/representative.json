@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "representativeID": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name"
+  ],
+  "$schema": "http://json-schema.org/draft-04/schema#"
+}

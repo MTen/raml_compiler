@@ -4,24 +4,18 @@ var generator = require(appRoot + "/src/testGenerator");
 //testArgs & testSchema set in helper.js//
 //////////////////////////////////////////
 
-var directoryArray = testGenerator.fileList(testArgDirectory);
+var directoryArray = generator.fileList(testArgDirectory);
 
 
 
 describe("testGenerator", function(){
-  beforeEach(function(){
-    testGenerator.executeGenerator(directoryArray);
-  });
 
-  afterEach(function(){
-    clearOutputDir(testOutput);
-  });
   it("is defined", function () {
-    assert.isDefined(testGenerator.fileList);
+    assert.isDefined(generator.fileList);
   });
 
-  it("returns a list of files in an array", function(done){
-    var check = fs.readdirSync(outputDirectory);
+  it("test directory has seed data", function(done){
+    var check = fs.readdirSync(seedSchemaDirectory);
     assert.isOk(check, "yay");
     done();
   })

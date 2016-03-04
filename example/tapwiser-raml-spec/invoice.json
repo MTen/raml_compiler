@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "$schema": "http://json-schema.org/schema",
+    "properties": {
+        "invoiceID": {
+            "type": "string"
+        },
+        "date": {
+            "type": "string",
+            "description": "The date of the invoice. Preferred format: yyyy-MM-dd HH:mm:ss."
+        },
+        "cost": {
+            "type": "number",
+            "description": "The cost of the invoice."
+        },
+        "taxAmount": {
+            "type": "number",
+            "description": "The total tax charged to the order."
+        },
+        "discountAmount": {
+            "type": "number",
+            "description": "The total value of the discounts applied to the order."
+        },
+        "invoiceItems": {
+            "$ref": "orderItem.json",
+            "description": "The items charged to this invoice."
+        },
+        "orders": {
+            "$ref": "order.json",
+            "description": "The orders associated with this invoice. Note: this should only be returned for invoice detail requests, and never in conjunction with invoiceItems."
+        }
+    },
+    "required": [
+        "invoiceID",
+        "date",
+        "cost",
+        "invoiceItems"
+    ]
+}

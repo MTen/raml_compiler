@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "billing_address": { "$ref": "definitions/address.json" },
+    "shipping_address": {
+      "allOf": [
+        { "$ref": "definitions/address.json" },
+        { "properties":
+        { "type": { "enum": [ "residential", "business" ] } },
+          "required": ["type"]
+        }
+      ]
+    }
+  }
+}

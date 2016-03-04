@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "$schema": "http://json-schema.org/schema",
+    "properties": {
+        "estimatedPriceID": {
+            "type": "string"
+        },
+        "estimate": {
+            "type": "number",
+            "description": "The estimated price of sale."
+        },
+        "itemID": {
+            "type": "string",
+            "description": "The itemID of the estimated item."
+        },
+        "servingSize": {
+            "type": "integer",
+            "description": "The serving size, for drafts, at which the item will be sold."
+        }
+    },
+    "required": [
+        "estimatedPriceID"
+    ]
+}

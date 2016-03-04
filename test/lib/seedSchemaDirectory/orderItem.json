@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "orderItemID": {
+      "type": "string"
+    },
+    "cost": {
+      "type": "number",
+      "description": "The cose of the orderItem."
+    },
+    "orderID": {
+      "type": "string",
+      "description": "The ID of the associated order."
+    },
+    "invoiceID": {
+      "type": "string",
+      "description": "The ID of the associated invoice."
+    },
+    "itemID": {
+      "type": "string",
+      "description": "The ID of the associated item. Note, either item or itemID is required."
+    },
+    "merchandiseID": {
+      "type": "string",
+      "description": "The ID of the associated merchandise."
+    },
+    "itemCount": {
+      "type": "integer",
+      "description": "The number of items ordered."
+    },
+    "item": {
+      "$ref": "#/properties/item/properties/price/properties/items/items",
+      "description": "The associated item. Note, either item or itemID is required."
+    },
+    "pricingCondition": {
+      "type": "string",
+      "description": "The condition by which this object was priced."
+    }
+  },
+  "required": [
+    "orderItemID",
+    "cost",
+    "itemCount"
+  ],
+  "$schema": "http://json-schema.org/draft-04/schema#"
+}

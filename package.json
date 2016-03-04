@@ -5,7 +5,8 @@
   "scripts": {
     "test": "mocha",
     "compile": "node bin/compile.js",
-    "generate": "node bin/generate.js"
+    "generate": "node bin/generate.js",
+    "cleanup": "node bin/clean.js"
   },
   "dependencies": {
     "chai": "^3.5.0",

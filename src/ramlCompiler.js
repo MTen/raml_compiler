@@ -21,7 +21,7 @@ module.exports = {
             this.lintExamples(f);
             break;
           case "json":
-            this.compileSchema(f);
+            this.promiseCompile(f);
             break;
           case "raml":
             this.moveRamlFile(f);
@@ -43,11 +43,24 @@ module.exports = {
   // gets files from directory
   // creates field targetDir
   fileList: function (dir) {
-    this.targetDir = dir;
-    this.fileArray = fs.readdirSync(dir);
-    return this.fileArray;
+    try {
+      this.targetDir = dir;
+      this.fileArray = fs.readdirSync(dir);
+      return this.fileArray;
+    }catch(e){
+      console.log(e.message);
+      throw new Error( e + " :: directory Error");
+    }
   },
 
+  //public
+  sanitizeInput: function(str){
+    var len = str.length;
+    if(str[len-1] === "/"){
+      str = str.slice('/', -1)
+    }
+    return str
+  },
 
   //private
   checkFileType: function(file) {
@@ -71,16 +84,15 @@ module.exports = {
     var json = fs.readFileSync(fileLocation);
     try{
       JSON.parse(json);
-      fs.writeFileSync(output + file, json);
     } catch(e) {
-      console.log(e.message +" in "+ file);
-      return e.message;
+      console.log("Error in " +file+ " " +e.message+ " run the example through http://www.jslint.com/");
     }
-
+    fs.writeFileSync(output + file, json);
   },
 
   // private
   // compilesSchema
+  // depreciated - compiles schema with a silent callback.
   compileSchema: function(file) {
     try {
       _this = this;
@@ -100,6 +112,31 @@ module.exports = {
     } catch (err) {
       // prevents bubbling
       return err + console.error(err + " :: bubble wrapper :: compileSchema");
+    }
+  },
+
+  // private
+  // improved
+  // compiles schema with the promise syntax
+  promiseCompile: function(file){
+    try{
+      var fileLocation = this.targetDir + "/" + file;
+
+      refParser.bundle(fileLocation, function(success){},function(err){
+        throw new Error(err + " :: target file error");
+      })
+        .then(function(schema){
+          this.removeSchemaDeclaration(schema);
+        })
+        .then(function(schema){
+          this.addSchemaDraft4Declaration(schema)
+        })
+        .then(function(schema){
+          var bundledSchema = JSON.stringify(schema, null, 2);
+          fs.writeFileSync(output + file, bundledSchema);
+        })
+    }catch(err){
+      return err + console.error(err + " :: bubble wrapper :: compileSchema")
     }
   },
 

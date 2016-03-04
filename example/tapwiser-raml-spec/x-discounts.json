@@ -1,0 +1,42 @@
+[
+    {
+        "exampleTitle": "Amount Off discount example",
+        "exampleDescription": "This discount object represents a discount for 5 dollars off of item ID 55345, if the user purchases 4 of this item. The discount will exist from October 11th to December 11th in 2016.",
+        "discountID": "1",
+        "itemIDs":["55345"],
+        "type": "AO",
+        "earnLevelAmount": 0,
+        "earnLevelQuantity": 4,
+        "amountOff": 5,
+        "percentOff": 0,
+        "startDate": "2016-10-11 00:00:00",
+        "endDate": "2016-12-11 00:00:00"
+    },
+    {
+        "exampleTitle": "Percent Off discount example",
+        "exampleDescription": "This discount object represents a discount for 10 percent off item ID 55346, if the user is spending 100 dollars. The discount will exist from October 11th to December 11th in 2016.",
+        "discountID": "2",
+        "itemIDs":["55346"],
+        "type": "PO",
+        "earnLevelAmount": 100,
+        "earnLevelQuantity": 0,
+        "amountOff": 0,
+        "percentOff": 10,
+        "startDate": "2016-10-11 00:00:00",
+        "endDate": "2016-12-11 00:00:00"
+    },
+    {
+        "exampleTitle": "Credit Free discount example:",
+        "exampleDescription": "This discount object represents a discount for 1 free item matching ID 55300, if the user buys 10 of item ID 55347. The discount will exist from October 11th to December 11th in 2016.",
+        "discountID": "3",
+        "itemIDs":["55347"],
+        "type": "CF",
+        "earnLevelAmount": 0,
+        "earnLevelQuantity": 10,
+        "amountOff": 0,
+        "percentOff": 0,
+        "earnedItem" : "55300",
+        "startDate": "2016-10-11 00:00:00",
+        "endDate": "2016-12-11 00:00:00"
+    }
+]

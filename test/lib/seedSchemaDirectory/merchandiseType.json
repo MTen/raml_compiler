@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "merchandiseTypeID": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "merchandiseTypeID",
+    "name"
+  ],
+  "$schema": "http://json-schema.org/draft-04/schema#"
+}

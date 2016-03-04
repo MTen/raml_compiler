@@ -1,0 +1,79 @@
+{
+    "custID": "N5509",
+    "wholesalerID": "857309",
+    "name": "A bar",
+    "deliveryAddresses": [
+        {
+            "addressLineOne": "158 Roebling Street",
+            "addressLineTwo": "",
+            "city": "Brooklyn",
+            "state": "New York",
+            "zipCode": "11211"
+        }
+    ],
+    "invoiceTypes": [
+        {
+            "invoiceTypeID": "B",
+            "description": "Beer"
+        }
+    ],
+    "minimumCaseOrderRequirement": 10.0,
+    "totalCredit": 3000,
+    "creditBalance": 205.55,
+    "creditExpiration": "2020-05-11 00:00:00",
+    "paymentMethods": ["CASH", "CREDIT", "UNION_PAY"],
+    "orderDeadlines": [
+        {
+            "day": 0,
+            "time": "13:30:00"
+        },
+        {
+            "day": 1,
+            "time": "16:00:00"
+        },
+        {
+            "day": 2,
+            "time": "16:00:00"
+        },
+        {
+            "day": 3,
+            "time": "16:30:00"
+        },
+        {
+            "day": 4,
+            "time": "16:00:00"
+        },
+        {
+            "day": 5,
+            "time": "16:00:00"
+        },
+        {
+            "day": 6,
+            "time": "13:00:00"
+        }
+    ],
+    "representatives": [
+        {
+            "representativeID": "23",
+            "name": "RJ",
+            "email": "rj@fuzzproductions.com",
+            "phone": "212-646-9000"
+        }
+    ],
+    "administrators": [
+        {
+            "userID": "FUZZ-158",
+            "email": "noah@fuzzproductions.com",
+            "name": "Noah Blake",
+            "phone": "212-646-8000"
+        }
+    ],
+    "users": [
+        {
+            "userID": "FUZZ-159",
+            "email": "rj@fuzzproductions.com",
+            "name": "RJStidd",
+            "phone": "212-646-8000"
+        }
+    ]
+}
