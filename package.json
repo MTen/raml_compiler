@@ -1,6 +1,6 @@
 {
   "engines": {
-    "node": ">= 0.10.0"
+    "node": " >= 4.5.103.33"
   },
   "scripts": {
     "test": "mocha",
