@@ -1,18 +1,13 @@
 // library imports
-var
-  fs = require('fs'),
-  refParser = require('json-schema-ref-parser'),
-  _ = require('underscore');
+var config = require('../config');
 
 // private fields
-var output = process.cwd()+"/output/";
-var temp  = process.cwd()+"/temp/";
-var targetDir = "";
+var output = outputTestsDirectory;
 
 
 module.exports = {
 
-  executeGenerator: function(dir) {
+  executeGenerator: function(dir, template) {
     try {
       for (var file = 0, dirLength = dir.length, last = dirLength; file < last; file++) {
         var f = dir[file];
@@ -22,7 +17,7 @@ module.exports = {
           case "example":
             break;
           case "json":
-            this.createTests(f);
+            this.createTests(f,template);
             break;
           case "other":
             break;
@@ -64,10 +59,12 @@ module.exports = {
   },
 
   createTests: function(file, template) {
+    var temp = template.toString();
+    var schema =  JSON.parse(fs.readFileSync(this.targetDir + file), "utf-8");
     var bundledSchema = JSON.stringify(schema, null, 2);
-    var temp = fs.readFileSync(template);
-    temp.replace("@cursor", file);
-    fs.writeFileSync(output + file, bundledSchema);
+    var test = temp.replace("@clipboard;", bundledSchema);
+    file = file.slice(0, -2)
+    fs.writeFileSync(output + file, test);
   }
 
 };
