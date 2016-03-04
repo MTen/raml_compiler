@@ -1,5 +1,8 @@
+node_modules
+lib/tapwiser-api-specification
+lib/cache
+npm-debug.log
+Gruntfile.js
 .DS_Store
 .idea/
-node_modules
-/js/output
 /ruby/raml_ruby/*
