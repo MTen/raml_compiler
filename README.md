@@ -34,9 +34,9 @@ Check your version of node
 3. Install app dependencies  
 	``` npm install ```  
 4. Check to make sure things are kind of working  
-	```mocha```  
+	``` mocha ```  
 5. Run the compiler on examples to get an idea of how it works  
-``` ```
+
 
 #### Example 1
 1. Compile
