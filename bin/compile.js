@@ -4,7 +4,7 @@ var config = require("../config.js");
 var args = process.argv[2];
 var ramlCompiler = require("../src/ramlCompiler.js");
 
-args = args || appRoot+"/example/nested-definitions";
+args = args || appRoot+"/lib/tapwiser-api-specification/US_3.6/";
 
   var clearArgs = ramlCompiler.sanitizeInput(args);
   try {
