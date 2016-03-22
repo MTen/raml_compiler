@@ -1,37 +1,35 @@
-// library imports
+// library imports - private
 var config = require('../config');
 var refParser = require('json-schema-ref-parser');
+var helpers = require('./helpers');
 
   // private fields
-  var output = outputSchemaDirectory;
-
+  var output = "";
 
 module.exports = {
 
+  ///////////////////
+  // import helpers//
+  ///////////////////
+  sanitizeInput: helpers.sanitizeInput,
+  checkFileType: helpers.checkFileType,
+  fileList: helpers.fileList,
+  //this.targetDirectory = dir
+  //this.schemaDirectory = dir + "/schema/"
+  //this.examplesDirectory = dir + "/examples/"
+  //this.fileArray = fs.readdirSync(this.schemaDirectory)
+
   // iterates over each item in the directory compiles the schema.
   //public
-  executeCompiler: function(dir) {
+  executeCompiler: function(dir, outputDir) {
     try {
+      output = outputDir;
       for (var file = 0, dirLength = dir.length, last = dirLength; file < last; file++) {
         var f = dir[file];
         var result = this.checkFileType(f);
-
-        switch( result ){
-          case "example":
-            this.lintExamples(f);
-            break;
-          case "json":
-            this.promiseCompile(f);
-            break;
-          case "raml":
-            this.moveRamlFile(f);
-            break;
-          case "other":
-            console.log(f + " is not parsable");
-            continue;
-        }
+        this.evaluateResult(result, f)
       }
-      return "schema compiled";
+      return console.log("schema compiled");
     }
     catch(e) {
       console.log(e.message);
@@ -39,64 +37,43 @@ module.exports = {
     }
 
   },
-  //public
-  // gets files from directory
-  // creates field targetDir
-  fileList: function (dir) {
-    try {
-      this.targetDir = dir;
-      this.fileArray = fs.readdirSync(dir);
-      return this.fileArray;
-    }catch(e){
-      console.log(e.message);
-      throw new Error( e + " :: directory Error");
+  evaluateResult: function(result, f){
+    switch( result ){
+    case "example":
+      this.lintExamples(f);
+      break;
+    case "json":
+      this.promiseCompile(f);
+      break;
+    case "raml":
+      this.moveRamlFile(f);
+      break;
+    case "other":
+      console.log(f + " is not parseable");
     }
   },
 
-  //public
-  sanitizeInput: function(str){
-    var len = str.length;
-    if(str[len-1] === "/"){
-      str = str.slice('/', -1)
-    }
-    return str
-  },
-
-  //private
-  checkFileType: function(file) {
-    if (file.match(/(^\w*(.json)$)/)) {
-      return "json"
-    }
-    else if(file.match(/(raml)/)){
-      return "raml"
-    }
-    else if(file.match(/^(x-)\w*(.json)$/)){
-      return "example"
-    }
-    else{
-      return "other"
-    }
-  },
 
   //private
   lintExamples: function(file){
-    var fileLocation = this.targetDir + "/" + file;
+    var fileLocation = this.examplesDirectory + "/x-" + file;
     var json = fs.readFileSync(fileLocation);
     try{
       JSON.parse(json);
     } catch(e) {
       console.log("Error in " +file+ " " +e.message+ " run the example through http://www.jslint.com/");
     }
-    fs.writeFileSync(output + file, json);
+    fs.writeFileSync(output +"/examples/"+ file, json);
   },
 
+  // DEPRECIATED
+  // compiles schema with a silent callback.
   // private
   // compilesSchema
-  // depreciated - compiles schema with a silent callback.
   compileSchema: function(file) {
     try {
       _this = this;
-      var fileLocation = this.targetDir + "/" + file;
+      var fileLocation = this.schemaDirectory + file;
 
       refParser.bundle(fileLocation, function (err, schema) {
             if (err) {
@@ -116,35 +93,79 @@ module.exports = {
   },
 
   // private
-  // improved
   // compiles schema with the promise syntax
   promiseCompile: function(file){
     try{
-      var fileLocation = this.targetDir + "/" + file;
+      var fileLocation = this.schemaDirectory + file;
       _this = this;
+      var f = file;
+      refParser.dereference(fileLocation)
 
-      refParser.bundle(fileLocation)
         .then(function(schema){
-          _this.removeSchemaDeclaration(schema);
-          return schema;
+          return _this.removeSchemaDeclaration(schema);
+
         }, function(err){
-          console.log(err);
+          fs.appendFileSync( outputDirectory+'cyclical-files.txt', "\n" + file + "\n" + err + "\n" + fileLocation + "\n" + f + "\n"  );
+
+          if(err == "RangeError: Maximum call stack size exceeded") {
+
+            _this.bundleItBaby(fileLocation, f)
+
+          } else if(err == "Error: Error opening file") {
+            fs.appendFileSync( outputDirectory+'cyclical-files.txt', "\n" + file + "\n" + " WORDS"  );
+
+          } else {
+            console.log(file, "Error removing schema declaration\n", err);
+          }
         })
+
+        // workaround for cyclical references
         .then(function(schema){
-          _this.addSchemaDraft4Declaration(schema);
-          return schema;
+          return _this.addSchemaDraft4Declaration(schema);
         }, function(err){
-          console.log(err);
+
+          if(err == "RangeError: Maximum call stack size exceeded") {
+            fs.appendFileSync( outputDirectory+'cyclical-files.txt', "\n" + file);
+            _this.bundleItBaby(fileLocation, f)
+          } else {
+            console.log(file, "error adding schema declaration\n", err);
+          }
         })
+
         .then(function(schema){
-          var bundledSchema = JSON.stringify(schema, null, 2);
-          fs.writeFileSync(output + file, bundledSchema);
+          var deferencedSchema = JSON.stringify(schema, null, 2);
+          fs.writeFileSync(outputSchemaDirectory + f, deferencedSchema);
         }, function(err){
-          console.log(err);
+          console.log("compile error", err);
         })
     }catch(err){
-      return err + console.error(err + " :: bubble wrapper :: compileSchema")
+      console.error( err + " :: bubble wrapper :: compileSchema");
+      return err.message
     }
+  },
+  bundleItBaby: function(filepath, f){
+    refParser.bundle(filepath)
+
+    .then(function(schema){
+        return _this.removeSchemaDeclaration(schema)
+      }, function(err){
+        console.log(err)
+      })
+
+      .then(function(schema){
+        return _this.addSchemaDraft4Declaration(schema);
+      },
+      function(err){
+        console.log(err)
+      })
+      .then(function(schema){
+        var bundledSchema = JSON.stringify(schema, null, 2);
+        console.log(f);
+        fs.writeFileSync(outputSchemaDirectory + f, bundledSchema);
+
+      }, function(err){
+        console.log("compile error" + err);
+      })
   },
 
   removeSchemaDeclaration: function(obj) {
@@ -167,7 +188,7 @@ module.exports = {
   },
 
   moveRamlFile: function(file){
-    var fileLocation = this.targetDir + "/" + file;
+    var fileLocation = this.targetDirectory + file;
     var raml = fs.readFileSync(fileLocation);
     fs.writeFileSync(output + file, raml);
   }

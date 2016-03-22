@@ -1,0 +1,56 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"allOf": [{
+		"properties": {
+			"discountID": {
+				"type": "string",
+				"description": "A unique identifier used to differentiate between discount objects."
+			},
+			"itemIDs": {
+				"type": "array",
+				"description": "An array of itemIDs that describe which items this discount is associated with.",
+        "items": {
+            "type": "string"
+        }
+			},
+			"startDate": {
+				"type": "string",
+				"format": "date-time"
+			},
+			"endDate": {
+				"type": "string",
+				"format": "date-time"
+			},
+			"discountAmount": {
+				"type": "number",
+				"description": "The total value of the discount."
+			},
+			"discountDescription": {
+				"type": "string",
+				"description": "The description of the discount which may be displayed to the user."
+			}
+		},
+    "required": [
+      "discountID", "startDate", "endDate", "discountAmount"
+    ]
+	}, {
+		"properties": {
+			"discountType": {
+				"enum": [
+					"AO"
+				],
+				"type": "string",
+				"description": "Specifies this is an Amount Off discount"
+			},
+			"amountOff": {
+				"type": "number",
+				"minimum": 0,
+				"description": "Amount taken off the price of a single item. Test: value should not exceed price of item."
+			}
+		},
+		"required": [
+			"itemIDs"
+		]
+	}]
+}

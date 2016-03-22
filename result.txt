@@ -1,0 +1,411 @@
+
+> @ validate /Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler
+> node bin/validate.js
+
+/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/output
+account.json { errors: [], missing: [], valid: true } 
+
+accounts.json { errors: [], missing: [], valid: true } 
+
+authentication.json { errors: [], missing: [], valid: true } 
+
+beerCocktails.json { errors: [], missing: [], valid: true } 
+
+brand.json { errors: 
+   [ { [ValidationError: Missing required property: brandID]
+       message: 'Missing required property: brandID',
+       params: [Object],
+       code: 302,
+       dataPath: '/items/0',
+       schemaPath: '/properties/items/items/required/1',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' },
+     { [ValidationError: Missing required property: brandName]
+       message: 'Missing required property: brandName',
+       params: [Object],
+       code: 302,
+       dataPath: '/items/0',
+       schemaPath: '/properties/items/items/required/3',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' },
+     { [ValidationError: Missing required property: glasswareDescription]
+       message: 'Missing required property: glasswareDescription',
+       params: [Object],
+       code: 302,
+       dataPath: '/glassware',
+       schemaPath: '/properties/glassware/required/1',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at Object.api.validateMultiple (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1597:12)\n    at Object.module.exports.tv4Valid (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/src/jsonValidator.js:69:17)' } ],
+  missing: [],
+  valid: false } 
+
+brands.json { errors: [], missing: [], valid: true } 
+
+browse.json { errors: [], missing: [], valid: true } 
+
+categories.json { errors: 
+   [ { [ValidationError: Array is too short (0), minimum 1]
+       message: 'Array is too short (0), minimum 1',
+       params: [Object],
+       code: 400,
+       dataPath: '/0/brands',
+       schemaPath: '/items/properties/brands/minItems',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateArrayLength (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:888:17)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:878:14)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)' } ],
+  missing: [],
+  valid: false } 
+
+category.json { errors: 
+   [ { [ValidationError: Missing required property: imageURL]
+       message: 'Missing required property: imageURL',
+       params: [Object],
+       code: 302,
+       dataPath: '/brands/0',
+       schemaPath: '/properties/brands/items/required/2',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' } ],
+  missing: [],
+  valid: false } 
+
+deliveryAddresses.json { errors: [], missing: [], valid: true } 
+
+deliveryWindows.json { errors: [], missing: [], valid: true } 
+
+discounts.json { errors: [], missing: [], valid: true } 
+
+empties.json { errors: [], missing: [], valid: true } 
+
+estimatedPrice.json { errors: [], missing: [], valid: true } 
+
+estimatedPrices.json { errors: [], missing: [], valid: true } 
+
+features.json { errors: [], missing: [], valid: true } 
+
+gifts.json { errors: [], missing: [], valid: true } 
+
+invoice.json { errors: 
+   [ { [ValidationError: Missing required property: orderProgress]
+       message: 'Missing required property: orderProgress',
+       params: [Object],
+       code: 302,
+       dataPath: '/orders/0',
+       schemaPath: '/properties/orders/items/required/3',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' },
+     { [ValidationError: Data is valid against more than one schema from "oneOf": indices 0 and 1]
+       message: 'Data is valid against more than one schema from "oneOf": indices 0 and 1',
+       params: [Object],
+       code: 12,
+       dataPath: '/orders/0/pricing/discounts/0',
+       schemaPath: '/properties/orders/items/properties/pricing/properties/discounts/items/oneOf',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateOneOf (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1194:17)\n    at ValidatorContext.validateCombinations (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1091:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:604:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' },
+     { [ValidationError: Missing required property: inventoryCount]
+       message: 'Missing required property: inventoryCount',
+       params: [Object],
+       code: 302,
+       dataPath: '/orders/0/pricing/orderItems/0/item',
+       schemaPath: '/properties/orders/items/properties/pricing/properties/orderItems/items/properties/item/required/4',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)' },
+     { [ValidationError: Missing required property: package]
+       message: 'Missing required property: package',
+       params: [Object],
+       code: 302,
+       dataPath: '/orders/0/pricing/orderItems/0/item',
+       schemaPath: '/properties/orders/items/properties/pricing/properties/orderItems/items/properties/item/required/5',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)' } ],
+  missing: [],
+  valid: false } 
+
+invoices.json { errors: [], missing: [], valid: true } 
+
+item.json { errors: 
+   [ { [ValidationError: Data is valid against more than one schema from "oneOf": indices 1 and 4]
+       message: 'Data is valid against more than one schema from "oneOf": indices 1 and 4',
+       params: [Object],
+       code: 12,
+       dataPath: '/price/discounts/0',
+       schemaPath: '/properties/price/properties/discounts/items/oneOf',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateOneOf (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1194:17)\n    at ValidatorContext.validateCombinations (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1091:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:604:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' } ],
+  missing: [],
+  valid: false } 
+
+items.json { errors: [], missing: [], valid: true } 
+
+merchandise.json { errors: 
+   [ { [ValidationError: Missing required property: unitPrice]
+       message: 'Missing required property: unitPrice',
+       params: [Object],
+       code: 302,
+       dataPath: '/0/price',
+       schemaPath: '/items/properties/price/required/1',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)' } ],
+  missing: [],
+  valid: false } 
+
+merchandiseTypes.json { errors: [], missing: [], valid: true } 
+
+negotiatedFreeProducts.json { errors: 
+   [ { [ValidationError: Missing required property: freeGoodID]
+       message: 'Missing required property: freeGoodID',
+       params: [Object],
+       code: 302,
+       dataPath: '/0',
+       schemaPath: '/items/required/0',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at Object.api.validateMultiple (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1597:12)\n    at Object.module.exports.tv4Valid (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/src/jsonValidator.js:69:17)' },
+     { [ValidationError: Missing required property: inventoryCount]
+       message: 'Missing required property: inventoryCount',
+       params: [Object],
+       code: 302,
+       dataPath: '/0/items/0',
+       schemaPath: '/items/properties/items/items/required/4',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' },
+     { [ValidationError: Missing required property: package]
+       message: 'Missing required property: package',
+       params: [Object],
+       code: 302,
+       dataPath: '/0/items/0',
+       schemaPath: '/items/properties/items/items/required/5',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' } ],
+  missing: [],
+  valid: false } 
+
+notifications.json { errors: [], missing: [], valid: true } 
+
+order.json { errors: 
+   [ { [ValidationError: Data is valid against more than one schema from "oneOf": indices 0 and 1]
+       message: 'Data is valid against more than one schema from "oneOf": indices 0 and 1',
+       params: [Object],
+       code: 12,
+       dataPath: '/pricing/discounts/0',
+       schemaPath: '/properties/pricing/properties/discounts/items/oneOf',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateOneOf (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1194:17)\n    at ValidatorContext.validateCombinations (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1091:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:604:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' },
+     { [ValidationError: Missing required property: package]
+       message: 'Missing required property: package',
+       params: [Object],
+       code: 302,
+       dataPath: '/pricing/orderItems/0/item',
+       schemaPath: '/properties/pricing/properties/orderItems/items/properties/item/required/5',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)' } ],
+  missing: [],
+  valid: false } 
+
+orders.json { errors: [], missing: [], valid: true } 
+
+points.json { errors: 
+   [ { [ValidationError: Invalid type: number (expected string)]
+       message: 'Invalid type: number (expected string)',
+       params: [Object],
+       code: 0,
+       dataPath: '/0/amount',
+       schemaPath: '/items/properties/amount/type',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateType (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:751:14)\n    at ValidatorContext.validateBasic (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:721:19)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:599:19)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)' },
+     { [ValidationError: Missing required property: brandName]
+       message: 'Missing required property: brandName',
+       params: [Object],
+       code: 302,
+       dataPath: '/0/items/0',
+       schemaPath: '/items/properties/items/items/required/3',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' },
+     { [ValidationError: Data is valid against more than one schema from "oneOf": indices 1 and 4]
+       message: 'Data is valid against more than one schema from "oneOf": indices 1 and 4',
+       params: [Object],
+       code: 12,
+       dataPath: '/0/items/0/price/discounts/0',
+       schemaPath: '/items/properties/items/items/properties/price/properties/discounts/items/oneOf',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateOneOf (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1194:17)\n    at ValidatorContext.validateCombinations (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1091:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:604:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' } ],
+  missing: [],
+  valid: false } 
+
+prices.json { errors: 
+   [ { [ValidationError: Data is valid against more than one schema from "oneOf": indices 1 and 4]
+       message: 'Data is valid against more than one schema from "oneOf": indices 1 and 4',
+       params: [Object],
+       code: 12,
+       dataPath: '/0/discounts/0',
+       schemaPath: '/items/properties/discounts/items/oneOf',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateOneOf (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1194:17)\n    at ValidatorContext.validateCombinations (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1091:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:604:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' },
+     { [ValidationError: Data does not match any schemas from "oneOf"]
+       message: 'Data does not match any schemas from "oneOf"',
+       params: {},
+       code: 11,
+       dataPath: '/0',
+       schemaPath: '/items/oneOf',
+       subErrors: [Object],
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateOneOf (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1218:15)\n    at ValidatorContext.validateCombinations (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1091:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:604:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at Object.api.validateMultiple (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1597:12)\n    at Object.module.exports.tv4Valid (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/src/jsonValidator.js:69:17)' } ],
+  missing: [],
+  valid: false } 
+
+pricing.json { errors: 
+   [ { [ValidationError: Data is valid against more than one schema from "oneOf": indices 0 and 1]
+       message: 'Data is valid against more than one schema from "oneOf": indices 0 and 1',
+       params: [Object],
+       code: 12,
+       dataPath: '/discounts/0',
+       schemaPath: '/properties/discounts/items/oneOf',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateOneOf (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1194:17)\n    at ValidatorContext.validateCombinations (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1091:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:604:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' } ],
+  missing: [],
+  valid: false } 
+
+search.json { errors: 
+   [ { [ValidationError: Invalid type: array (expected object)]
+       message: 'Invalid type: array (expected object)',
+       params: [Object],
+       code: 0,
+       dataPath: '/merchandise',
+       schemaPath: '/properties/merchandise/type',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateType (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:751:14)\n    at ValidatorContext.validateBasic (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:721:19)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:599:19)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at Object.api.validateMultiple (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1597:12)\n    at Object.module.exports.tv4Valid (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/src/jsonValidator.js:69:17)' } ],
+  missing: [],
+  valid: false } 
+
+suggestedOrderItems.json { errors: [], missing: [], valid: true } 
+
+trends.json { errors: 
+   [ { [ValidationError: Missing required property: imageURL]
+       message: 'Missing required property: imageURL',
+       params: [Object],
+       code: 302,
+       dataPath: '/0/brand',
+       schemaPath: '/items/properties/brand/required/2',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)' },
+     { [ValidationError: Missing required property: glasswareDescription]
+       message: 'Missing required property: glasswareDescription',
+       params: [Object],
+       code: 302,
+       dataPath: '/0/brand/glassware',
+       schemaPath: '/items/properties/brand/properties/glassware/required/1',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' } ],
+  missing: [],
+  valid: false } 
+
+truck.json { errors: 
+   [ { [ValidationError: Missing required property: cost]
+       message: 'Missing required property: cost',
+       params: [Object],
+       code: 302,
+       dataPath: '/orderItems/0',
+       schemaPath: '/properties/orderItems/items/required/1',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' },
+     { [ValidationError: Missing required property: inventoryCount]
+       message: 'Missing required property: inventoryCount',
+       params: [Object],
+       code: 302,
+       dataPath: '/orderItems/0/item',
+       schemaPath: '/properties/orderItems/items/properties/item/required/4',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)' },
+     { [ValidationError: Missing required property: package]
+       message: 'Missing required property: package',
+       params: [Object],
+       code: 302,
+       dataPath: '/orderItems/0/item',
+       schemaPath: '/properties/orderItems/items/properties/item/required/5',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)' },
+     { [ValidationError: Missing required property: orderItemID]
+       message: 'Missing required property: orderItemID',
+       params: [Object],
+       code: 302,
+       dataPath: '/orderItems/1',
+       schemaPath: '/properties/orderItems/items/required/0',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' },
+     { [ValidationError: Missing required property: cost]
+       message: 'Missing required property: cost',
+       params: [Object],
+       code: 302,
+       dataPath: '/orderItems/1',
+       schemaPath: '/properties/orderItems/items/required/1',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' },
+     { [ValidationError: Missing required property: inventoryCount]
+       message: 'Missing required property: inventoryCount',
+       params: [Object],
+       code: 302,
+       dataPath: '/orderItems/1/item',
+       schemaPath: '/properties/orderItems/items/properties/item/required/4',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)' },
+     { [ValidationError: Missing required property: package]
+       message: 'Missing required property: package',
+       params: [Object],
+       code: 302,
+       dataPath: '/orderItems/1/item',
+       schemaPath: '/properties/orderItems/items/properties/item/required/5',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)' },
+     { [ValidationError: Missing required property: orderItemID]
+       message: 'Missing required property: orderItemID',
+       params: [Object],
+       code: 302,
+       dataPath: '/giftItems/0',
+       schemaPath: '/properties/giftItems/items/required/0',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' },
+     { [ValidationError: Missing required property: cost]
+       message: 'Missing required property: cost',
+       params: [Object],
+       code: 302,
+       dataPath: '/giftItems/0',
+       schemaPath: '/properties/giftItems/items/required/1',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' },
+     { [ValidationError: Missing required property: itemCount]
+       message: 'Missing required property: itemCount',
+       params: [Object],
+       code: 302,
+       dataPath: '/giftItems/0',
+       schemaPath: '/properties/giftItems/items/required/2',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' },
+     { [ValidationError: Missing required property: brandID]
+       message: 'Missing required property: brandID',
+       params: [Object],
+       code: 302,
+       dataPath: '/giftItems/0/item',
+       schemaPath: '/properties/giftItems/items/properties/item/required/1',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)' },
+     { [ValidationError: Missing required property: brandName]
+       message: 'Missing required property: brandName',
+       params: [Object],
+       code: 302,
+       dataPath: '/giftItems/0/item',
+       schemaPath: '/properties/giftItems/items/properties/item/required/3',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateObjectRequiredProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:993:22)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:960:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:603:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)' },
+     { [ValidationError: Data is valid against more than one schema from "oneOf": indices 0 and 2]
+       message: 'Data is valid against more than one schema from "oneOf": indices 0 and 2',
+       params: [Object],
+       code: 12,
+       dataPath: '/giftItems/0',
+       schemaPath: '/properties/giftItems/items/oneOf',
+       subErrors: null,
+       stack: 'Error\n    at new ValidationError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1461:12)\n    at ValidatorContext.createError (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:359:14)\n    at ValidatorContext.validateOneOf (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1194:17)\n    at ValidatorContext.validateCombinations (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1091:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:604:11)\n    at ValidatorContext.validateArrayItems (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:947:21)\n    at ValidatorContext.validateArray (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:880:11)\n    at ValidatorContext.validateAll (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:602:11)\n    at ValidatorContext.validateObjectProperties (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:1010:21)\n    at ValidatorContext.validateObject (/Users/mtener/Dropbox/fuzz/code/api-projects/raml-compiler/node_modules/tv4/tv4.js:961:11)' } ],
+  missing: [],
+  valid: false } 
+
+user.json { errors: [], missing: [], valid: true } 
+
+videos.json { errors: [], missing: [], valid: true } 
+
+wholesalers.json { errors: [], missing: [], valid: true } 
+

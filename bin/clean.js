@@ -9,3 +9,6 @@ var clearOutput = function(dir) {
 
 clearOutput(outputSchemaDirectory);
 clearOutput(outputTestsDirectory);
+
+fs.writeFileSync(outputSchemaDirectory+".placeholder");
+fs.writeFileSync(outputTestsDirectory+".placeholder");

@@ -6,12 +6,16 @@
     "test": "mocha",
     "compile": "node bin/compile.js",
     "generate": "node bin/generate.js",
-    "cleanup": "node bin/clean.js"
+    "cleanup": "node bin/clean.js",
+    "validate": "node bin/validate.js"
   },
   "dependencies": {
     "chai": "^3.5.0",
+    "is-my-json-valid": "^2.13.1",
     "json-schema-ref-parser": "^2.2.0",
+    "jsonlint": "^1.6.2",
     "mocha": "^2.4.5",
+    "tv4": "^1.2.7",
     "underscore": "^1.8.3"
   },
   "devDependencies": {

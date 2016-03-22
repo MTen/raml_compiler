@@ -1,5 +1,6 @@
 // library imports
 var config = require('../config');
+var helpers = require('./helpers');
 
 // private fields
 var output = outputTestsDirectory;
@@ -12,16 +13,7 @@ module.exports = {
       for (var file = 0, dirLength = dir.length, last = dirLength; file < last; file++) {
         var f = dir[file];
         var result = this.checkFileType(f);
-
-        switch( result ){
-          case "example":
-            break;
-          case "json":
-            this.createTests(f,template);
-            break;
-          case "other":
-            break;
-        }
+        this.evaluateResult(result, f, template)
       }
       return "schema compiled";
     }
@@ -29,7 +21,17 @@ module.exports = {
       console.log(e.message);
       return e.message;
     }
-
+  },
+  evaluateResult: function(res, file, template){
+    switch( res ){
+      case "example":
+        break;
+      case "json":
+        this.createTests(file, template);
+        break;
+      case "other":
+        break;
+    }
   },
 
   checkFileType: function(file) {
@@ -49,7 +51,7 @@ module.exports = {
 
   fileList: function (dir) {
     try {
-      this.targetDir = dir;
+      this.schemaDirectory = dir;
       this.fileArray = fs.readdirSync(dir);
       return this.fileArray;
     } catch (e) {
@@ -60,7 +62,7 @@ module.exports = {
 
   createTests: function(file, template) {
     var temp = template.toString();
-    var schema =  JSON.parse(fs.readFileSync(this.targetDir + file), "utf-8");
+    var schema =  JSON.parse(fs.readFileSync(this.schemaDirectory + file), "utf-8");
     var bundledSchema = JSON.stringify(schema, null, 2);
     var test = temp.replace("@clipboard;", bundledSchema);
     file = file.slice(0, -2)

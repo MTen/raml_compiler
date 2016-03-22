@@ -1,17 +1,20 @@
 #!/usr/local/bin/node
 var config = require("../config.js");
 // Program is executable by running node app.js rel-Directory"
-var args = process.argv[2];
+var args = process.argv;
 var ramlCompiler = require("../src/ramlCompiler.js");
 
-args = args || appRoot+"/lib/tapwiser-api-specification/US_3.6/";
+folder = args[2] || appRoot+"/lib/tapwiser-api-specification/Master";
+output = args[3] || outputDirectory;
 
-  var clearArgs = ramlCompiler.sanitizeInput(args);
+  var clearArgs = ramlCompiler.sanitizeInput(folder);
+
   try {
+    fs.writeFileSync(outputDirectory+'cyclical-files.txt', "Files with cyclical dependencies" + "\n" + new Date().toLocaleString());
     var files = ramlCompiler.fileList(clearArgs);
-    ramlCompiler.executeCompiler(files);
+    ramlCompiler.executeCompiler(files, output);
   }catch(err){
-    err
+    console.log("top level error", err);
   }
 
 //node app.js
