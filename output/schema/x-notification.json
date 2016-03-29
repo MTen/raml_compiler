@@ -1,6 +1,0 @@
-{
-  "notificationID": "123",
-  "description": "Alert me when my order is 30 minutes away.",
-  "isEnabled": true,
-  "day": -1
-}

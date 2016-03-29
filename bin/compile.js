@@ -16,5 +16,3 @@ output = args[3] || outputDirectory;
   }catch(err){
     console.log("top level error", err);
   }
-
-//node app.js
