@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "glasswareID": {
+      "type": "string",
+      "description": "A unique identifier for differentiating glassware objects"
+    },
+    "imageURL": {
+      "type": "string",
+      "description": "A path to the glassware's image."
+    },
+    "glasswareDescription": {
+      "type": "string",
+      "description": "A description of the glassware."
+    },
+    "name": {
+      "type": "string",
+      "description": "A name for the glassware, e.g. Pint Glass."
+    }
+  },
+  "required": [
+    "glasswareID",
+    "glasswareDescription",
+    "imageURL",
+    "name"
+  ],
+  "$schema": "http://json-schema.org/draft-04/schema#"
+}

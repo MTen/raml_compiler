@@ -4,7 +4,7 @@ var config = require("../config.js");
 var args = process.argv;
 var ramlCompiler = require("../src/ramlCompiler.js");
 
-folder = args[2] || appRoot+"/lib/tapwiser-api-specification/Master";
+folder = args[2] || appRoot+"/lib/tapwiser-api-specification/DR_1.0/";
 output = args[3] || outputDirectory;
 
   var clearArgs = ramlCompiler.sanitizeInput(folder);

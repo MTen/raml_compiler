@@ -1,0 +1,38 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "description": "A bill issued to the account",
+    "properties": {
+      "invoiceID": {
+        "type": "string",
+        "description": "A unique identifier to differentiate invoice objects"
+      },
+      "date": {
+        "type": "string",
+        "description": "The date of the invoice.",
+        "format": "date-time"
+      },
+      "cost": {
+        "type": "number",
+        "description": "The cost of the invoice."
+      },
+      "taxAmount": {
+        "type": "number",
+        "description": "The total tax charged to the order."
+      },
+      "discountAmount": {
+        "type": "number",
+        "description": "The total value of the discounts applied to the order."
+      }
+    },
+    "required": [
+      "invoiceID",
+      "date",
+      "cost",
+      "discountAmount",
+      "taxAmount"
+    ]
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#"
+}

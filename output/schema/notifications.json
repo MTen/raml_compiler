@@ -1,0 +1,41 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "description": "A user-bound notification. For instance, a notification updating the user about the status of a scheduled delivery.",
+    "properties": {
+      "notificationID": {
+        "type": "string",
+        "description": "A unique ID for differentiating notification objects"
+      },
+      "notificationDescription": {
+        "type": "string",
+        "description": "A displayable description of the notification."
+      },
+      "isEnabled": {
+        "type": "boolean",
+        "description": "An indicator of whether the user has enabled this notification or not. By default, true."
+      },
+      "day": {
+        "enum": [
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "description": "Day of the week, enumerated. Sunday = 0, Saturday = 6. -1 denotes a notification that has no relationship to a given day."
+      }
+    },
+    "required": [
+      "notificationID",
+      "description",
+      "isEnabled",
+      "day"
+    ]
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#"
+}

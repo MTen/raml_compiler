@@ -1,0 +1,1164 @@
+#%RAML 0.8
+title: Dominican Republic TapWiser API
+baseUri: url
+version: 1.0.0
+
+schemas:
+  - account: !include account.json
+  - accounts: !include accounts.json
+  - authentication: !include authentication.json
+  - brand: !include brand.json
+  - brands: !include brands.json
+  - category: !include category.json
+  - categories: !include categories.json
+  - discount: !include discount.json
+  - discounts: !include discounts.json
+  - invoice: !include invoice.json
+  - estimatedPrice: !include estimatedPrice.json
+  - estimatedPrices: !include estimatedPrices.json
+  - invoices: !include invoices.json
+  - item: !include item.json
+  - items: !include items.json
+  - notifications: !include notifications.json
+  - order: !include order.json
+  - orders: !include orders.json
+  - prices: !include prices.json
+  - pricing: !include pricing.json
+  - promotions: !include promotions.json
+  - search: !include search.json
+  - suggestedOrderItems: !include suggestedOrderItems.json
+  - trends: !include trends.json
+  - truck: !include truck.json
+  - videos: !include videos.json
+  - user: !include user.json
+
+resourceTypes:
+  - primary:
+      description: The primary resource provider for the TapWiser API, responsible for facillitating order placement and provided data associated with placing an order. In America, Mobility.
+  - secondary:
+      description: A non-primary resource provided for the TapWiser API. In the future, these resources will be more specifically defined, and likely enabled through a CMS.
+  - blended:
+      description: A resource combining other resources through a Mulesoft-enabled reconcilliation.
+
+traits:
+  - dateRanged:
+      description: If both start and end date are unspecified, all objects will be returned.
+      queryParameters:
+        startDate:
+          type: string
+          required: false
+          description: The starting date. If unspecified, the return will include all objects older than the end date.
+        endDate:
+          type: string
+          required: false
+          description: The ending date. If unspecified, the return will include all objects younger than the start date.
+
+  - errorReporter:
+      responses:
+        400:
+         body:
+          application/json:
+            schema: |
+              { "message": {"type": "string", "description": "A user-readable string describing the error"},
+                "description": "400 errors should be returned when something is wrong with the request."
+              }
+            example: |
+              { "message" : "DESCRIPTIVE_SLUG" }
+        401:
+         body:
+          application/json:
+            schema: |
+              { "message": {"type": "string", "description": "A user-readable string describing the error"},
+                "description": "401 errors should be returned only when the user's authentication token has expired."
+              }
+            example: |
+              { "message" : "DESCRIPTIVE_SLUG" }
+
+  - paged:
+      queryParameters:
+        page:
+          type: integer
+          required: false
+          description: The requested page of data.
+        limit:
+          type: integer
+          required: false
+          description: The count of data objects per page.
+
+  - priced:
+      description: Indicates that current pricing information may be requested.
+
+  - requiresClientIdentifiers:
+      queryParameters:
+        client_id:
+          type: string
+          required: true
+        client_secret:
+          type: string
+          required: true
+
+  - secured:
+      headers:
+        x-Access-Token:
+          description: A token issued to a user after successful authentication.
+          type: string
+          required: true
+        CustID:
+          description: An identifier for the account the user is operating.
+          type: string
+          required: true
+        wholesalerID:
+          description: An identifier for the wholesaler the user is ordering from.
+          type: string
+          required: true
+
+/metadata:
+  description: Returns public app metadata, such as customer service phone numbers, walkthrough direction or localized string files.
+  is: [errorReporter, requiresClientIdentifiers]
+  type: secondary
+  get:
+    queryParameters:
+      language:
+        description: The user's language code (ISO-639). If the server can provide a url for a matching localized string resource, it will. By default, a url linked to an English resource is returned.
+        type: string
+        required: false
+      territory:
+        description: The user's territory, used for delivering targeted app versioning.
+        type: string
+        required: false
+      region:
+        description: The user's territory, used for delivering targeted customer service and more granular customizations.
+        type: string
+        required: false
+    responses:
+      200:
+        body:
+          application/json:
+            schema: |
+              {
+                "type": "object",
+                "required": true,
+                "properties": {
+                  "stringResourceURL": {
+                    "type": "string",
+                    "format": "uri",
+                    "required": true
+                  },
+                  "currentAppVersion": {
+                    "type": "string",
+                    "description": "If the iOS user’s version is less than this value, an update will be suggested.",
+                    "required": true
+                  },
+                  "minimumVersionRequired": {
+                    "type": "string",
+                    "description": "If the iOS user's app version number is less than this version, an update is required.",
+                    "required": true
+                  },
+                  "currentAndroidAppVersion": {
+                    "type": "string",
+                    "description": "If the Android user’s version is less than this value, an update will be suggested.",
+                    "required": true
+                  },
+                  "minimumAndroidVersionRequired": {
+                    "type": "string",
+                    "description": "If the Android user's app version number is less than this version, an update is required.",
+                    "required": true
+                  },
+                  "displayDiscounts": {
+                    "type": "boolean",
+                    "description": "Dictates whether the application should display discounts or not. By default, true.",
+                    "required": true
+                  },
+                  "appURL": {
+                    "type": "string",
+                    "description": "A url where the newest version of the iOS app may be downloaded.",
+                    "format": "uri",
+                    "required": true
+                  },
+                  "androidAppURL": {
+                    "type": "string",
+                    "description": "A url where the newest version of the Android app may be downloaded.",
+                    "format": "uri",
+                    "required": true
+                  },
+                  "customerServicePhone": {
+                    "type": "string",
+                    "required": false
+                  },
+                  "customerServiceEmail": {
+                    "type": "string",
+                    "format": "email",
+                    "required": false
+                  }
+                }
+              }
+            example: |
+              {
+                "stringResourceURL": "http://www.tapwiser.com/api/resourceURL.json",
+                "currentAppVersion": "2.2",
+                "minimumVersionRequired": "3.0",
+                "currentAndroidAppVersion": "1.1",
+                "minimumAndroidVersionRequired": "1.0",
+                "displayDiscounts": true,
+                "displaySuggestedOrder": false,
+                "appURL": "https://itunes.apple.com/us/genre/ios/id36?mt=8",
+                "androidAppURL": "https://play.google.com/store/apps/details?id=com.abinbev.android.tapwiser",
+                "customerServicePhone": "347-493-8660",
+                "customerServiceEmail": "tapwiser@fuzzproductions.com"
+              }
+/authentication:
+  description: Logs the user in and out of the client. Additionally, assists users who have forgotten their passwords.
+  is: [errorReporter, requiresClientIdentifiers]
+  type: blended
+  post:
+    description: Logs the user into the app, creating a authentication token.
+    body:
+      application/json:
+        schema: |
+          {
+            "type": "object",
+              "properties": {
+                "userName": {"type" : "string"},
+                "password": {"type" : "string"}
+              }
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            schema: authentication
+            example: !include x-authentication.json
+  delete:
+    is: [secured, errorReporter, requiresClientIdentifiers]
+    description: Logs the user out of the app and invalidate the user's session token.
+    responses:
+      200:
+        body:
+            application/json:
+              schema: |
+                {
+                  "message": {
+                    "type": "string",
+                    "description" : "A message to display to the user confirming that he has logged out."
+                  }
+                }
+              example: |
+                {
+                  "message": "You have logged out."
+                }
+  /updatePassword:
+    is: [errorReporter, requiresClientIdentifiers]
+    type: primary
+    description: Updates the user's password.
+    post:
+      body:
+        application/json:
+          schema: |
+            {
+              "type": "object",
+              "properties": {
+                "userName": {"type" : "string"},
+                "oldPassword": {"type" : "string", "required": false},
+                "verificationCode": {"type" : "string", "required": false},
+                "newPassword": {"type" : "string"}
+              }
+            }
+      responses:
+        200:
+          body:
+            application/json:
+              schema: |
+                {
+                  "message": {
+                    "type": "string",
+                    "description" : "A message to display to the user confirming that his password has been updated."
+                  }
+                }
+              example: |
+                {
+                  "message": "Your password has been updated."
+                }
+  /forgotPassword:
+    is: [errorReporter, requiresClientIdentifiers]
+    type: primary
+    description: Assists a user who has forgotten his password, likely by sending him an email or an sms with a new password. If the user posts either a known email address or known phone number, the means to recover his TapWiser password are sent to him. Otherwise, he receives an error.
+    post:
+      body:
+        application/json:
+          schema: |
+            {
+              "type": "object",
+              "properties": {
+                "userName": {"type" : "string", "required": false}
+              }
+            }
+      responses:
+        200:
+          body:
+            application/json:
+              schema: |
+                {
+                  "message": {
+                    "type": "string",
+                    "description" : "PASSWORD_RECEIVED_SLUG"
+                  },
+                  "temporaryPassword": {
+                    "type": "string",
+                    "description" : "A temporary password that may be used to login once.",
+                    "required": false
+                  }
+                }
+              example: |
+                {
+                  "message": "Request received! An email explaining how to retrieve your password has been sent to noah@fuzzproductions.com.",
+                  "temporaryPassword": "SGSaueI73"
+                }
+/orders:
+  description: Places new orders, retrieves placed orders, and adds user-generated content to placed orders.
+  is: [secured, errorReporter, requiresClientIdentifiers]
+  type: primary
+  get:
+    is: [ dateRanged, paged ]
+    description: Returns an array of orders, sorted from newest to oldest.
+    queryParameters:
+      echoPreviousYear:
+        description: Return historic orders from the previous year that occurred between identical MM/DD ranges.
+        type: boolean
+        required: false
+      invoiceID:
+        description: Return orders associated with an invoiceID.
+        type: string
+        required: false
+    responses:
+      200:
+        body:
+          application/json:
+            schema: orders
+            example: !include x-orders.json
+  post:
+    description: Creates a new order. Before this can take place, the client must price the order. Users acknowledge the price, and that price is passed back in for final validation during order submission. If the price is no longer valid, the order is not submitted.
+    body:
+        application/json:
+          schema: |
+            {
+              "type": "object",
+              "properties": {
+                "expectedPrice": {"type" : "number"},
+                "paymentMethod": {"type": "string", "enum": ["Cash", "Credit", "UNION_PAY", "CASH_AND_CREDIT"], "description" : "One of the following: CASH, CREDIT, UNION_PAY, CASH_AND_CREDIT", "required": false},
+                "requestedKegReturn": {"type" : "boolean", "required": false},
+                "returnBottleCaseCount": {"type" : "number", "required": false},
+                "note": {"type": "string", "required": false},
+                "orderItems": {
+                  "type": "array",
+                  "required": false,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "itemCount": {"type": "integer"},
+                      "itemID": {"type": "string"}
+                    }
+                  }
+                }
+              }
+            }
+    responses:
+      200:
+        body:
+          application/json:
+            schema: orders
+            example: !include x-orders.json
+      202:
+        description: Returned when an account must make a payment before placing a new order.
+        body:
+          application/json:
+            schema: |
+              {
+                "message": {"type": "string", "description": "A description of the order pending status."}
+              }
+            example: |
+              {
+                "message": "You must make a payment on your outstanding invoices before placing a new order."
+              }
+      400:
+        description: Returned when one of a number of errors are found with the order.
+        body:
+          application/json:
+            schema: |
+              {
+                "action": {
+                  "type": "string",
+                  "enum": ["INSUFFICIENT_CREDIT"],
+                  "description": "A enumeration of the error type. Accepted values INSUFFICIENT_CREDIT."
+                },
+                "message": {"type": "string", "description": "A description of the order failure."}
+              }
+            example: |
+              {
+                "action": "INSUFFICIENT_CREDIT",
+                "message": "Your account does not have enough credit to earn the credit price. Reprice this order and try again."
+              }
+      402:
+        description: Returned when an account must make a payment before placing a new order.
+        body:
+          application/json:
+            schema: |
+              {
+                "message": {"type": "string", "description": "A description of the order failure."}
+              }
+            example: |
+              {
+                "message": "You must make a payment on your outstanding invoices before placing a new order."
+              }
+      403:
+        description: Returned when an order does not meet minimum delivery requirements.
+        body:
+          application/json:
+            schema: |
+              {
+                "message": {"type": "string", "description": "A description of the order failure."}
+              }
+            example: |
+              {
+                "message": "The order does not meet the delivery minimum. Please add more to your truck and retry."
+              }
+      409:
+        description: An array of errors describing the item(s) responsible for order submission failure.
+        body:
+          application/json:
+            schema: |
+              {
+                "type": "object",
+                "properties": {
+                  "orderErrors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "message": {"type": "string"},
+                        "items": {
+                          "type": "array",
+                          "description": "The items responsible for the order submission failure.",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "itemID": {"type": "string"}
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            example: |
+              {
+                "orderErrors" : [
+                  {
+                    "message": "You do not have enough credit to purchase these items.",
+                    "items": [
+                      {
+                        "itemID": "43100"
+                      },
+                      {
+                        "itemID": "43101"
+                      }
+                    ]
+                  }
+                ]
+              }
+  /suggested:
+    description: Returns a suggested order for the account.
+    is: [secured, errorReporter, priced, requiresClientIdentifiers]
+    type: blended
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              schema: suggestedOrderItems
+              example: !include x-suggestedOrder.json
+  /{orderID}:
+    is: [secured, errorReporter, priced, requiresClientIdentifiers]
+    type: primary
+    get:
+      description: Returns the details of a single order.
+      responses:
+        200:
+          body:
+            application/json:
+              schema: order
+              example: !include x-order.json
+    put:
+      description: Updates an order, marking its favorite state or altering its name.
+      body:
+        application/json:
+          schema: |
+            {
+              "type": "object",
+              "properties": {
+                "name": {"type" : "string"},
+                "isFavorite": {"type" : "boolean"}
+              }
+            }
+      responses:
+        200:
+          body:
+            application/json:
+              schema: order
+              example: !include x-order.json
+/invoices:
+  is: [secured, errorReporter, dateRanged, paged, priced, requiresClientIdentifiers]
+  type: primary
+  get:
+    description: Returns an array of invoices.
+    queryParameters:
+      sortProperty:
+        description: The property to sort the invoice by. Specify "id," "date," or "cost."
+        type: string
+        required: false
+      ascending:
+        description: Specify whether results should be sorted in ascending or descending order.
+        type: boolean
+        required: false
+    responses:
+      200:
+        body:
+          application/json:
+            schema: invoices
+            example: !include x-invoices.json
+  /{invoiceID}:
+    is: [secured, errorReporter, requiresClientIdentifiers]
+    type: primary
+    get:
+      description: Returns the details of a single invoice.
+      responses:
+        200:
+          body:
+            application/json:
+              schema: invoice
+              example: !include x-invoice.json
+/truck:
+  is: [secured, errorReporter, requiresClientIdentifiers]
+  type: primary
+  description: A resource for updating and retrieving the state of the account's current order.
+  get:
+    description: Get the contents of the account's truck.
+    responses:
+        200:
+          body:
+            application/json:
+              schema: truck
+              example: !include x-truck.json
+  put:
+    description: Add, edit, or delete an item in the account's truck. Note that the service will echo the current state of the account's truck in the event of a 200.
+    body:
+      application/json:
+        schema: |
+          {
+            "type": "object",
+            "properties": {
+              "itemCount": {
+                "type": "integer"
+              },
+              "itemID": {
+                "type": "string",
+                "required": "false"
+              },
+              "giftID": {
+                "type": "string",
+                "required": "false"
+              }
+            }
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            schema: truck
+            example: !include x-truck.json
+  delete:
+    description: Clear all items from the user's truck.
+    responses:
+      200:
+        body:
+          application/json:
+            schema: truck
+            example: !include x-truck.json
+/items:
+  is: [secured, errorReporter, priced, requiresClientIdentifiers]
+  type: primary
+  description: Retrieves information about items available for sale.
+  get:
+    description: Returns an optionally filterable list of items for sale.
+    queryParameters:
+        brandID:
+          type: string
+          required: false
+          description: An optional parameter used to return an array of products associated with a brand.
+        orderID:
+          type: string
+          required: false
+          description: An optional parameter used to return an array of products associated with an order.
+    responses:
+      200:
+        body:
+          application/json:
+            schema: items
+            example: !include x-items.json
+  /{itemID}:
+    is: [secured, errorReporter, priced, requiresClientIdentifiers]
+    type: primary
+    get:
+      description: Returns the details of a single product.
+      responses:
+        200:
+          body:
+            application/json:
+              schema: item
+              example: !include x-item.json
+  /suggested:
+    description: Items suggested for the account.
+    is: [secured, errorReporter, requiresClientIdentifiers]
+    type: primary
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              schema: items
+              example: !include x-items.json
+/regulars:
+  description: Returns a list of the current account’s 20 most frequently ordered items over the last 90 days, sorted by descending regularity (most frequently ordered items to least frequently ordered).
+  is: [secured, errorReporter, priced, requiresClientIdentifiers]
+  type: primary
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            schema: items
+            example: !include x-regulars.json
+/pricing:
+  type: primary
+  /order:
+    is: [secured, errorReporter, priced, requiresClientIdentifiers]
+    description: Prices an imminent order.
+    post:
+      body:
+        application/json:
+          schema: |
+            {
+              "type": "object",
+              "properties": {
+                "paymentMethod": {
+                  "type": "string",
+                  "enum": ["Cash", "Credit", "UNION_PAY", "CASH_AND_CREDIT"],
+                  "default": "CASH",
+                  "description": "Acceptable values: CASH, CREDIT, UNION_PAY, CASH_AND_CREDIT. By default, CASH.",
+                  "required": false
+                },
+                "orderItems": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "itemCount": {
+                        "type": "integer"
+                      },
+                      "itemID": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+      responses:
+        200:
+          body:
+            application/json:
+              schema: pricing
+              example: !include x-pricing.json
+        409:
+          description: An array of errors describing the item(s) responsible for pricing failure.
+          body:
+            application/json:
+              schema: |
+                {
+                  "type": "object",
+                  "properties": {
+                    "pricingErrors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "message": {"type": "string"},
+                          "items": {
+                            "type": "array",
+                            "description": "The items responsible for the order submission failure.",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "itemID": {"type": "string"}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              example: |
+                {
+                  "orderErrors" : [
+                    {
+                      "message": "You do not have enough credit to purchase these items.",
+                      "items": [
+                        {
+                          "itemID": "43100"
+                        },
+                        {
+                          "itemID": "43101"
+                        }
+                      ]
+                    }
+                  ]
+                }
+  /items:
+    is: [secured, errorReporter, priced, requiresClientIdentifiers]
+    type: primary
+    get:
+      description: Returns a list of prices for items, and potentially simple, certain discounts for those items. As with all pricing concerns, the assumption is that the user is looking for current prices, which is to say prices with an effective date of now.
+      queryParameters:
+        itemID:
+          type: string
+          required: false
+          description: An optional array used to return a price associated with the passed in items.
+      responses:
+        200:
+          body:
+            application/json:
+              schema: prices
+              example: !include x-prices.json
+/discounts:
+  is: [secured, errorReporter, priced, requiresClientIdentifiers]
+  type: primary
+  get:
+    description: Returns an array of all discounts.
+    responses:
+        200:
+          body:
+            application/json:
+              schema: discounts
+              example: !include x-discounts.json
+/users:
+  is: [requiresClientIdentifiers, errorReporter]
+  type: primary
+  post:
+    description: This request may be made by one of two parties - new users attempting to self-register or an administrator attempting to associate a new user with an account. When this request is made on behalf of an unauthorized, non-admin user, it will create a user or prompt a pre-existing user to create an association to an account. When this request is made on behalf an authorized admin, it will create a user or prompt the admin to create an association between a pre-existing user and his account. Supplemental documentation may be found here https//docs.google.com/document/d/1SI3_TDQU739whL3QMii_xlQ6XL1zeEn8bTu5iyRlQSw/edit?usp=sharing.
+    headers:
+      x-Access-Token:
+        description: A token issued to a user after successful authentication.
+        type: string
+        required: false
+      CustID:
+        description: An identifier for the account the user is operating.
+        type: string
+        required: false
+      wholesalerID:
+        description: An identifier for the wholesaler the user is ordering from.
+        type: string
+        required: false
+    body:
+      application/json:
+        schema: |
+          {
+            "type": "object",
+              "properties": {
+                "firstName": {"type": "string"},
+                "lastName": {"type": "string"},
+                "email": {"type": "string"},
+                "phone": {"type": "string"},
+                "invoiceID": {"type": "string", "required": false},
+                "invoiceDate": {"type": "string", "format": "date-time", "required": false},
+                "customerID": {"type": "string"},
+                "secondaryCustomerID": {"type": "string", "required": false, "description": "This is required if the region requires an additional ID code along with customerID"},
+                "taxID": {"type": "string", "required": false},
+                "wholesalerID": {"type": "string", "required": false},
+                "distributorID": {"type": "string", "required": false},
+                "grantAdmin": {"type": "integer", "description": "Either -1 (unknown) or 1 (grant administrative privileges)."}
+              }
+          }
+    responses:
+        200:
+          body:
+            application/json:
+              schema: |
+                {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "description": "One of the following - USER_CREATED_AND_ASSOCIATED, USER_CREATED_ASSOCIATION_REQUESTED, USER_EXISTS_CREATE_REJECTED",
+                      "enum": ["USER_CREATED_AND_ASSOCIATED", "USER_CREATED_ASSOCIATION_REQUESTED", "USER_EXISTS_CREATE_REJECTED"]
+                    },
+                    "message":{
+                      "type": "string",
+                      "description": "USER_CREATED_AND_ASSOCIATED - Check your email for a confirmation message that includes your login information, then return to TapWiser to sign in. USER_CREATED_ASSOCIATION_REQUESTED The account administrator has been notified of your request. Once your request is verified, you'll receive an email with your login information. USER_EXISTS_CREATE_REJECTED- We found an existing user with this email address. Would you like to connect EMAIL_ADDRESS with this account?",
+                      "enum": [ "Check your email for a confirmation message that includes your login information, then return to TapWiser to sign in.", "The account administrator has been notified of your request. Once your request is verified, you'll receive an email with your login information.", "We found an existing user with this email address. Would you like to connect EMAIL_ADDRESS with this account?" ]
+                    },
+                    "temporaryPassword": {
+                      "type": "string",
+                      "required": false
+                    }
+                  }
+                }
+              example: |
+                {
+                  "action": "USER_CREATED_ASSOCIATION_REQUESTED",
+                  "message": "The account administrator has been notified of your request. Once your request is verified, you'll receive an email with your login information.",
+                  "temporaryPassword": "bBB783e3"
+                }
+  /{userID}:
+    is: [secured, errorReporter, requiresClientIdentifiers]
+    type: primary
+    get:
+      description: Returns the details of a user.
+      responses:
+        200:
+          body:
+            application/json:
+              schema: user
+              example: !include x-user.json
+/accounts/{accountID}:
+  is: [secured, errorReporter, requiresClientIdentifiers]
+  get:
+    description: Retrieves account details. If the request is issued from one of the account's administrators, the return will contain an array of all users associated with the account. The request is invalid if the accountID in the URL does not match the custID provided in the header.
+    responses:
+        200:
+          body:
+            application/json:
+              schema: account
+              example: !include x-account.json
+  put:
+    description: Edits an account's user privileges, performing one of four actions; grants or revokes a user's access to the account, grants or revokes a user's admin privileges. This request is invalid unless issued by an administrator of the account. The request is also invalid if the accountID in the URL does not match the custID provided in the header.
+    body:
+        application/json:
+          schema: |
+            {
+              "type": "object",
+                "properties": {
+                  "users": {
+                    "type": "array",
+                    "items": [{"email":{"type" : "string"},
+                              "name":{"type" : "string"}}]
+                  },
+                  "administrators": {
+                    "type": "array",
+                    "items": [{"email":{"type" : "string"},
+                              "name":{"type" : "string"}}]
+                  }
+                }
+            }
+    responses:
+        200:
+          body:
+            application/json:
+              schema: account
+              example: !include x-account.json
+  /expectedDeliveryDate:
+    description: A microservice providing quick access to account's next expected delivery date without exposing other details of the account which may only be available to the administrators.
+    is: [secured, errorReporter, requiresClientIdentifiers]
+    type: primary
+    get:
+      responses:
+          200:
+            body:
+              application/json:
+                schema: |
+                  {
+                    "expectedDeliveryDate": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                example: |
+                  {
+                    "expectedDeliveryDate": "2015-10-20 16:30:00"
+                  }
+/accounts/connect:
+  is: [errorReporter, requiresClientIdentifiers]
+  type: primary
+  post:
+    description: Requests an association between a pre-existing user and an account.
+    body:
+      application/json:
+        schema: |
+          {
+            "type": "object",
+              "properties": {
+                "customerID": {"type": "string"},
+                "secondaryCustomerID": {"type": "string", "required": false, "description": "This is required if the region requires an additional ID code along with customerID"},
+                "taxID": {"type": "string", "required": false},
+                "wholesalerID": {"type": "string", "required": false},
+                "inviterEmail": {"type": "string", "format": "email"},
+                "inviteeEmail": {"type": "string", "format": "email"},
+                "invoiceID": {"type": "string"},
+                "invoiceDate": {"type": "string", "format": "date-time"},
+                "grantAdmin": {"type": "integer", "description": "Either -1 (unknown) or 1 (grant administrative privileges)."}
+              }
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            schema: |
+              {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "description": "One of the following: USER_ASSOCIATED, USER_ASSOCIATION_REQUESTED"
+                  },
+                  "message":{"type": "string"}
+                }
+              }
+            example: |
+              {
+                "action": "USER_ASSOCIATION_REQUESTED",
+                "message": "The account administrator has been notified of your request. Once your request is verified, you’ll receive an email with your login information."
+              }
+/accounts/register:
+  is: [errorReporter, requiresClientIdentifiers]
+  type: primary
+  post:
+    description: Requests an account be created for a Point of Consumption.
+    body:
+      application/json:
+        schema: |
+          {
+            "type" : "object",
+            "properties": {
+              "firstName": {"type": "string"},
+              "lastName": {"type": "string"},
+              "email": {"type": "string"},
+              "phone": {"type": "string"},
+              "businessName": {"type": "string"},
+              "addressLineOne": {"type": "string"},
+              "addressLineTwo": {"type": "string"},
+              "city": {"type": "string"},
+              "postalCode": {"type": "string"},
+              "country": {"type": "string", "required": false},
+              "origin": {"type": "string", "description": "Indication of how the user heard about the app.", "required": false}
+            }
+          }
+    responses:
+        200:
+          body:
+            application/json:
+              schema: |
+                {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "description": "One of the following - POC_REGISTRATION_PENDING_REVIEW, POC_EXISTS_REGISTRATION_REJECTED"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "ACCOUNT_REGISTRATION_PENDING_REVIEW - An Account Administrator has been notified of your request. Someone will reach out to you to you soon regarding your application. ACCOUNT_EXISTS_REGISTRATION_REJECTED- We found an existing POC with this email address."
+                    }
+                  }
+                }
+              example: |
+                {
+                  "action": "POC_REGISTRATION_PENDING_REVIEW",
+                  "message": "An Account Administrator has been notified of your request. Someone will reach out to you to you soon regarding your application."
+                }
+/notifications:
+  description: Fetches notifications and updates the user's reception preferences.
+  is: [secured, errorReporter, requiresClientIdentifiers]
+  type: secondary
+  get:
+    description: Returns an array of notifications.
+    responses:
+      200:
+        body:
+          application/json:
+            schema: notifications
+            example: !include x-notifications.json
+  put:
+    description: Updates the user's notification reception preferences. On success, echoes the state of the user's notifications.
+    body:
+      application/json:
+        schema: |
+          {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "notificationID": {"type": "string"},
+                "isEnabled": {"type": "boolean"}
+              }
+            }
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            schema: notifications
+            example: !include x-notifications.json
+/browse:
+  description: Returns the list of promotions and categories that are displayed in the central browsing experience.
+  is: [secured, errorReporter, requiresClientIdentifiers]
+  type: secondary
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            schema: |
+              {
+                "type": "object",
+                "properties": {
+                  "promotions": {"$ref": "promotions.json"},
+                  "categories": {"$ref": "categories.json"}
+                }
+              }
+            example: !include x-browse.json
+/search:
+    is: [secured, errorReporter, requiresClientIdentifiers]
+    type: secondary
+    get:
+      description: Returns an array of brands or merchandise items matching the query. By default, brands are searched.
+      queryParameters:
+        query:
+          type: string
+          required: true
+          description: A parameter that represents the user's input.
+        isMerchandise:
+          type: boolean
+          required: true
+          description: An optional parameter that determines whether the search is querying brands or merchandise.
+        family:
+          type: string
+          required: false
+          description: An optional parameter used to exclude results that do not match the family identifier.
+      responses:
+        200:
+          body:
+            application/json:
+              schema: search
+              example: !include x-search.json
+/estimates:
+  is: [secured, errorReporter, requiresClientIdentifiers]
+  type: secondary
+  description: Retrieves and creates user-generated estimates. These estimates are input by the user and are used to assist him in estimating his potential profit.
+  get:
+    description: Returns an array of the user's estimates.
+    queryParameters:
+      itemIDs:
+        type: string
+        required: false
+        description: An optional parameter used to return the estimated prices related an array of itemIDs.
+    responses:
+        200:
+          body:
+            application/json:
+              schema: estimatedPrices
+              example: !include x-estimates.json
+  post:
+    description: Creates or updates a user's estimate of an item.
+    queryParameters:
+      estimate:
+        type: number
+        required: true
+        description: The estimated price the user will sell the item for.
+      itemID:
+        type: string
+        required: true
+        description: The itemID of the item being estimated.
+      servingSize:
+        type: integer
+        required: false
+        description: The volume of a serving size. This parameter is required for estimates to drafts.
+    responses:
+        200:
+          body:
+            application/json:
+              schema: estimatedPrice
+              example: !include x-estimate.json
+/categories:
+  is: [secured, errorReporter, requiresClientIdentifiers]
+  type: secondary
+  description: Returns details about categories, the root nodes of the app's browsing experience.
+  get:
+    description: Returns an array of all categories.
+    responses:
+      200:
+        body:
+          application/json:
+            schema: categories
+            example: !include x-categories.json
+  /{categoryID}:
+    is: [secured, errorReporter, priced, requiresClientIdentifiers]
+    type: secondary
+    get:
+      description: Returns the details of a single category.
+      responses:
+        200:
+          body:
+            application/json:
+              schema: category
+              example: !include x-category.json
+/brands:
+  is: [secured, errorReporter, requiresClientIdentifiers]
+  type: secondary
+  description: Returns details about brands.
+  get:
+    description: Returns an array of brands.
+    queryParameters:
+      categoryID:
+        type: string
+        required: false
+        description: An optional parameter used to return an array of brands associated with a category.
+    responses:
+      200:
+        body:
+          application/json:
+            schema: brands
+            example: !include x-brands.json
+  /{brandID}:
+    is: [secured, errorReporter, priced, requiresClientIdentifiers]
+    type: blended
+    get:
+      description: Returns the details of a single brand.
+      responses:
+        200:
+          body:
+            application/json:
+              schema: brand
+              example: !include x-brand.json
+/trends:
+  is: [secured, errorReporter, priced, requiresClientIdentifiers]
+  type: secondary
+  get:
+    description: Returns an array of three localized trends.
+    responses:
+        200:
+          body:
+            application/json:
+              schema: trends
+              example: !include x-trends.json
+/videos:
+  is: [secured, errorReporter, requiresClientIdentifiers]
+  type: secondary
+  get:
+    description: Returns all available videos.
+    responses:
+      200:
+        body:
+          application/json:
+            schema: videos
+            example: !include x-videos.json
+

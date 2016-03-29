@@ -1,0 +1,58 @@
+{
+  "invoiceID": "1",
+  "physicalInvoiceID": "2",
+  "date": "2014-10-11 00:00:00",
+  "cost": 290.45,
+  "taxAmount": 21.3,
+  "discountAmount": 32.5,
+  "poNumber": "12345",
+  "orders": [
+    {
+      "orderID": "1",
+      "placementDate": "2014-10-11 00:00:00",
+      "expectedDeliveryDate": "2014-10-12 00:00:00",
+      "note": "Use the side door please",
+      "isFavorite": false,
+      "isPayableOnline": true,
+      "name": "Thursday order",
+      "requestedKegReturn": true,
+      "settleState": "UNSETTLED",
+      "orderState": "AWAITING_PAYMENT",
+      "invoiceID": "12345",
+      "physicalInvoiceID": "12345",
+      "pricing": {
+        "pricingID": "1",
+        "cost": 258.96,
+        "taxAmount": 21.3,
+        "chargeAmount": 0,
+        "discountAmount": 32.5,
+        "grossSalesAmount": 237.96,
+        "depositAmount": 30.1,
+        "salesQuantity": 1,
+        "discounts": [
+          {
+            "discountID": "1",
+            "discountAmount": 32.5
+          }
+        ],
+        "orderItems": [
+          {
+            "orderItemID": "KTKC61",
+            "cost": 28.12,
+            "itemCount": 1,
+            "item": {
+              "brandID": "12642",
+              "brandName": "BECKS SP LIGHT",
+              "itemID": "KTKC6",
+              "name": "BCKLT 4/6/12 LN USP3",
+              "price": {
+                "priceID": "2790",
+                "unitPrice": 26.92
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
